@@ -14,6 +14,8 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
+    let db = Firestore.firestore()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -47,6 +49,20 @@ class RegisterViewController: UIViewController {
                 } else {
                     // Authentication success
                     print(authResult!)
+                    
+                    // Defines basic data for the user
+                    self.db.collection("users").document(self.emailTextField.text!).setData([
+                        "name": "Null Name",
+                        "email": self.emailTextField.text!,
+                        "friends": []
+                    ]) { err in
+                        if let err = err {
+                            print("Error writing document: \(err)")
+                        } else {
+                            print("Document successfully written!")
+                        }
+                    }
+                    
                     self.performSegue(withIdentifier: K.segue.showContactsFromRegister, sender: self)
                 }
             }
