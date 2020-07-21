@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseFirestoreSwift
 import Firebase
 
 class ContactsViewController: UITableViewController {
@@ -14,6 +15,8 @@ class ContactsViewController: UITableViewController {
     let db = Firestore.firestore()
     
     var currentUser: User?
+    
+    var conversations: [Conversation] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,43 +26,27 @@ class ContactsViewController: UITableViewController {
         let a = Auth.auth().currentUser
         if let user = a {
             currentUser = user
-        }
-        
-        // Select document from collection
-        let docRef = db.collection("users").document(currentUser!.email!).collection("friends")
-        
-        docRef.getDocuments() { (querySnapshot, err) in
-            if let err = err {
-                print("Error getting documents: \(err)")
-            } else {
-                for document in querySnapshot!.documents {
-                    print("Friend: \(document.documentID) - ChatId: \(document.data()["chatId"] as! String)")
+            
+            // get conversations with user email in
+            let conversationRef = db.collection("conversations").whereField("users", arrayContains: user.email!)
+            
+            // Get all documents and loop through them
+            conversationRef.getDocuments { (querySnapshot, error) in
+                if let error = error {
+                    print("There has been an error \(error)")
+                } else {
+                    for document in querySnapshot!.documents {
+                        print("Chat Name: \(document.data()["name"] as! String)")
+                        
+                        var newConversation = Conversation()
+                        newConversation.id = document.documentID
+                        newConversation.name = document.data()["name"] as! String
+                        self.conversations.append(newConversation)
+                    }
+                    self.tableView.reloadData()
                 }
             }
-            
         }
-        
-        // Use getdocument to fetch data
-//        docRef.getDocument { (document, error) in
-//            if let data = document?.data() {
-//                print(data["friends"] ?? "Friends not available")
-//                // Must use a forced downcast because swift doesn't know what the data type will be and if it is a sequence
-//                for friend in data["friends"] as! [String] {
-//                    print(friend)
-//
-//                    let friendDocRef = self.db.collection("users").document(friend)
-//
-//                    friendDocRef.getDocument { (document, error) in
-//                        if let data = document?.data() {
-//                            print(data["name"] as! String)
-//                        }
-//                    }
-//
-//                }
-//
-//            }
-//        }
-        
     }
     
     @IBAction func logoutButtonPressed(_ sender: UIBarButtonItem) {
@@ -70,7 +57,23 @@ class ContactsViewController: UITableViewController {
         } catch let signOutError as NSError {
             print ("Error signing out: %@", signOutError)
         }
-        
+    }
+}
+
+extension ContactsViewController {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return conversations.count
     }
     
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        
+        cell.textLabel?.text = conversations[indexPath.row].name
+        cell.accessoryType = .disclosureIndicator
+        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("ID: \(conversations[indexPath.row].id) - Name: \(conversations[indexPath.row].name)")
+    }
 }
