@@ -7,9 +7,17 @@
 //
 
 import Foundation
+import Firebase
 
 struct Conversation {
     var id: String = ""
     var name: String = ""
     var users: [String] = []
+}
+
+struct Message {
+    var id: String = ""
+    var text: String = ""
+    var fromEmail: String = ""
+    var time: Timestamp?
 }

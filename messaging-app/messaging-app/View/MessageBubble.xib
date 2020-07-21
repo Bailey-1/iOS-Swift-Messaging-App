@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="messageCellIdentifier" rowHeight="146" id="FCB-hF-sVq" customClass="MessageBubble" customModule="messaging_app" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="146"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FCB-hF-sVq" id="eWx-R1-S83">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="146"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nsg-Nh-nZn">
+                        <rect key="frame" x="5" y="5" width="404" height="136"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="Yjy-1y-4iY">
+                                <rect key="frame" x="10" y="10" width="384" height="116"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rcZ-XF-noC">
+                                        <rect key="frame" x="0.0" y="0.0" width="384" height="58"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yyx-FQ-WoB">
+                                        <rect key="frame" x="0.0" y="58" width="384" height="58"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Yjy-1y-4iY" firstAttribute="top" secondItem="nsg-Nh-nZn" secondAttribute="top" constant="10" id="Q5N-Wx-6e2"/>
+                            <constraint firstAttribute="trailing" secondItem="Yjy-1y-4iY" secondAttribute="trailing" constant="10" id="Ssk-8s-uhv"/>
+                            <constraint firstAttribute="bottom" secondItem="Yjy-1y-4iY" secondAttribute="bottom" constant="10" id="Wuf-fY-BPQ"/>
+                            <constraint firstItem="Yjy-1y-4iY" firstAttribute="leading" secondItem="nsg-Nh-nZn" secondAttribute="leading" constant="10" id="oo6-xl-AvT"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="nsg-Nh-nZn" secondAttribute="bottom" constant="5" id="HGG-8o-ERl"/>
+                    <constraint firstItem="nsg-Nh-nZn" firstAttribute="top" secondItem="eWx-R1-S83" secondAttribute="top" constant="5" id="aFj-xF-RER"/>
+                    <constraint firstItem="nsg-Nh-nZn" firstAttribute="leading" secondItem="eWx-R1-S83" secondAttribute="leading" constant="5" id="w00-rz-koA"/>
+                    <constraint firstAttribute="trailing" secondItem="nsg-Nh-nZn" secondAttribute="trailing" constant="5" id="zS2-uP-5E6"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="nameLabel" destination="rcZ-XF-noC" id="frT-8H-3yw"/>
+                <outlet property="textContent" destination="Yyx-FQ-WoB" id="LWF-WG-OjP"/>
+                <outlet property="viewBubble" destination="nsg-Nh-nZn" id="bdZ-sw-2eF"/>
+            </connections>
+            <point key="canvasLocation" x="-14.492753623188406" y="141.29464285714286"/>
+        </tableViewCell>
+    </objects>
+</document>

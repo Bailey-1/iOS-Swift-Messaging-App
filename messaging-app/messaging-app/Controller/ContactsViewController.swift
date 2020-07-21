@@ -18,6 +18,8 @@ class ContactsViewController: UITableViewController {
     
     var conversations: [Conversation] = []
     
+    var selectedConversationID: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -60,6 +62,7 @@ class ContactsViewController: UITableViewController {
     }
 }
 
+//MARK: - UITableViewDelegate Stuff
 extension ContactsViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return conversations.count
@@ -75,5 +78,14 @@ extension ContactsViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("ID: \(conversations[indexPath.row].id) - Name: \(conversations[indexPath.row].name)")
+        selectedConversationID = conversations[indexPath.row].id
+        self.performSegue(withIdentifier: K.segue.showMessages, sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == K.segue.showMessages {
+            let destinationVC = segue.destination as! MessagesViewController //Chose the right view controller. - Downcasting
+            destinationVC.conversationID = selectedConversationID!
+        }
     }
 }

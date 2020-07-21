@@ -9,10 +9,13 @@
 import Foundation
 
 struct K {
+    static let messageCellIdentifier = "messageCellIdentifier"
+    static let messageCellNib = "MessageBubble"
+    
     struct segue {
         static let showContactsFromRegister = "showContactsFromRegister"
         static let showContactsFromLogin = "showContactsFromLogin"
         
-        static let showMessags = "showMessages"
+        static let showMessages = "showMessages"
     }
 }

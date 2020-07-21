@@ -22,6 +22,8 @@
 		D974461F24C5DB6C002D45D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D974461D24C5DB6C002D45D8 /* LaunchScreen.storyboard */; };
 		D9B44CB824C70CD900CE50C6 /* dump.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B44CB724C70CD900CE50C6 /* dump.swift */; };
 		D9B44CBA24C70DD300CE50C6 /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B44CB924C70DD300CE50C6 /* Conversation.swift */; };
+		D9D8426324C7505D00E4C086 /* MessageBubble.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9D8426224C7505D00E4C086 /* MessageBubble.xib */; };
+		D9D8426524C7511F00E4C086 /* MessageBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D8426424C7511F00E4C086 /* MessageBubble.swift */; };
 		D9DE2A9E24C5E38E00C3F594 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D9DE2A9D24C5E38D00C3F594 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +47,8 @@
 		D974462024C5DB6C002D45D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D9B44CB724C70CD900CE50C6 /* dump.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dump.swift; sourceTree = "<group>"; };
 		D9B44CB924C70DD300CE50C6 /* Conversation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conversation.swift; sourceTree = "<group>"; };
+		D9D8426224C7505D00E4C086 /* MessageBubble.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageBubble.xib; sourceTree = "<group>"; };
+		D9D8426424C7511F00E4C086 /* MessageBubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageBubble.swift; sourceTree = "<group>"; };
 		D9DE2A9D24C5E38D00C3F594 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -73,6 +77,8 @@
 			isa = PBXGroup;
 			children = (
 				D974461524C5DB6B002D45D8 /* Main.storyboard */,
+				D9D8426224C7505D00E4C086 /* MessageBubble.xib */,
+				D9D8426424C7511F00E4C086 /* MessageBubble.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -205,6 +211,7 @@
 				D974461F24C5DB6C002D45D8 /* LaunchScreen.storyboard in Resources */,
 				D9DE2A9E24C5E38E00C3F594 /* GoogleService-Info.plist in Resources */,
 				D974461C24C5DB6C002D45D8 /* Assets.xcassets in Resources */,
+				D9D8426324C7505D00E4C086 /* MessageBubble.xib in Resources */,
 				D974461724C5DB6B002D45D8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -259,6 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D974461A24C5DB6B002D45D8 /* messaging_app.xcdatamodeld in Sources */,
+				D9D8426524C7511F00E4C086 /* MessageBubble.swift in Sources */,
 				D9B44CB824C70CD900CE50C6 /* dump.swift in Sources */,
 				D974461424C5DB6B002D45D8 /* ViewController.swift in Sources */,
 				D974461024C5DB6B002D45D8 /* AppDelegate.swift in Sources */,
