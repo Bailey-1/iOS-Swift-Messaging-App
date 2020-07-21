@@ -17,13 +17,22 @@ class MessageBubble: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        viewBubble.layer.cornerRadius = viewBubble.frame.size.height / 5
+        viewBubble.layer.cornerRadius = viewBubble.frame.size.height / 10
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    override func prepareForReuse() {
+        // invoke superclass implementation
+        super.prepareForReuse()
+        
+        // apparently this causes a performance issue. idk. it works tho
+        self.nameLabel.text = ""
+        self.textContent.text = ""
     }
     
 }

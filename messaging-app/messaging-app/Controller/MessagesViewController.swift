@@ -26,10 +26,10 @@ class MessagesViewController: UIViewController {
         
         
         tableView.dataSource = self
-        tableView.transform = CGAffineTransform(scaleX: 1, y: -1)
+        //tableView.transform = CGAffineTransform(scaleX: 1, y: -1)
         tableView.separatorStyle = .none
         tableView.register(UINib(nibName: K.messageCellNib, bundle: nil), forCellReuseIdentifier: K.messageCellIdentifier)
-        
+        tableView.rowHeight = UITableView.automaticDimension
         loadMessages()
         db.collection("conversations").document(conversationID).getDocument(completion: { (DocumentSnapshot, Error) in
             self.title = DocumentSnapshot?.data()!["name"] as? String
@@ -47,7 +47,7 @@ class MessagesViewController: UIViewController {
     }
     
     func loadMessages(){
-        db.collection("conversations").document(conversationID).collection("messages").order(by: "time", descending: true).addSnapshotListener { (querySnapshot, err) in
+        db.collection("conversations").document(conversationID).collection("messages").order(by: "time", descending: false).addSnapshotListener { (querySnapshot, err) in
             self.messages = []
             if let err = err {
                 print("Error getting documents: \(err)")
@@ -68,7 +68,6 @@ class MessagesViewController: UIViewController {
                         self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
                     }
                 }
-                self.tableView.reloadData()
             }
         }
     }
@@ -107,7 +106,7 @@ extension MessagesViewController: UITableViewDataSource {
         cell.nameLabel.text = messages[indexPath.row].fromEmail
         cell.textContent.text = messages[indexPath.row].text
         
-        cell.contentView.transform = CGAffineTransform(scaleX: 1, y: -1)
+        //cell.contentView.transform = CGAffineTransform(scaleX: 1, y: -1)
         return cell
     }
 }
