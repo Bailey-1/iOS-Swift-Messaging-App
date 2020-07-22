@@ -29,6 +29,7 @@ class MessagesViewController: UIViewController {
         //tableView.transform = CGAffineTransform(scaleX: 1, y: -1)
         tableView.separatorStyle = .none
         tableView.register(UINib(nibName: K.messageCellNib, bundle: nil), forCellReuseIdentifier: K.messageCellIdentifier)
+        tableView.estimatedRowHeight = 150
         tableView.rowHeight = UITableView.automaticDimension
         loadMessages()
         db.collection("conversations").document(conversationID).getDocument(completion: { (DocumentSnapshot, Error) in
@@ -61,13 +62,13 @@ class MessagesViewController: UIViewController {
                     newMessage.fromEmail = message.data()["fromEmail"] as! String
                     newMessage.time = message.data()["time"] as? Timestamp
                     self.messages.append(newMessage)
-                    
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
                         let indexPath = IndexPath(row: self.messages.count - 1, section: 0)
                         self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
                     }
                 }
+
             }
         }
     }
@@ -108,5 +109,9 @@ extension MessagesViewController: UITableViewDataSource {
         
         //cell.contentView.transform = CGAffineTransform(scaleX: 1, y: -1)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
     }
 }
