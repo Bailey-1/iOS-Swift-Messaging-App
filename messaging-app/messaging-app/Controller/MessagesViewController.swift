@@ -18,6 +18,7 @@ class MessagesViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var messageTextField: UITextField!
     @IBOutlet weak var sendButton: UIButton!
+    @IBOutlet weak var chatSettingsButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -93,6 +94,18 @@ class MessagesViewController: UIViewController {
                     }
                 }
             }
+        }
+    }
+    
+    
+    @IBAction func chatSettingsButtonPressed(_ sender: UIBarButtonItem) {
+        self.performSegue(withIdentifier: K.segue.showChatSettings, sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == K.segue.showChatSettings {
+            let destinationVC = segue.destination as! ChatSettings //Chose the right view controller. - Downcasting
+            destinationVC.chatId = conversationID
         }
     }
 }

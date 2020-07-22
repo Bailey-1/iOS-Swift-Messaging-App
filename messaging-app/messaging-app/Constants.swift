@@ -17,5 +17,9 @@ struct K {
         static let showContactsFromLogin = "showContactsFromLogin"
         
         static let showMessages = "showMessages"
+        
+        static let showChatSettings = "showChatSettings"
+        static let showChangeGroupColour = "showChangeGroupColour"
+        static let showChatMembers = "showChatMembers"
     }
 }
