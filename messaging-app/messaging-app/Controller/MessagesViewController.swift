@@ -27,7 +27,7 @@ class MessagesViewController: UIViewController {
         
         
         tableView.dataSource = self
-        //tableView.transform = CGAffineTransform(scaleX: 1, y: -1)
+        tableView.transform = CGAffineTransform(scaleX: 1, y: -1)
         tableView.separatorStyle = .none
         tableView.register(UINib(nibName: K.messageCellNib, bundle: nil), forCellReuseIdentifier: K.messageCellIdentifier)
         tableView.estimatedRowHeight = 150
@@ -49,7 +49,7 @@ class MessagesViewController: UIViewController {
     }
     
     func loadMessages(){
-        db.collection("conversations").document(conversationID).collection("messages").order(by: "time", descending: false).addSnapshotListener { (querySnapshot, err) in
+        db.collection("conversations").document(conversationID).collection("messages").order(by: "time", descending: true).addSnapshotListener { (querySnapshot, err) in
             self.messages = []
             if let err = err {
                 print("Error getting documents: \(err)")
@@ -65,7 +65,7 @@ class MessagesViewController: UIViewController {
                     self.messages.append(newMessage)
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
-                        let indexPath = IndexPath(row: self.messages.count - 1, section: 0)
+                        let indexPath = IndexPath(row: 0, section: 0)
                         self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
                     }
                 }
@@ -97,7 +97,6 @@ class MessagesViewController: UIViewController {
         }
     }
     
-    
     @IBAction func chatSettingsButtonPressed(_ sender: UIBarButtonItem) {
         self.performSegue(withIdentifier: K.segue.showChatSettings, sender: self)
     }
@@ -120,7 +119,7 @@ extension MessagesViewController: UITableViewDataSource {
         cell.nameLabel.text = messages[indexPath.row].fromEmail
         cell.textContent.text = messages[indexPath.row].text
         
-        //cell.contentView.transform = CGAffineTransform(scaleX: 1, y: -1)
+        cell.contentView.transform = CGAffineTransform(scaleX: 1, y: -1)
         return cell
     }
     

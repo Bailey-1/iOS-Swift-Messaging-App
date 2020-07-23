@@ -18,6 +18,7 @@ class ChatSettings: UITableViewController{
         print("Chat ID: \(chatId)")
     }
     
+    // Set new VC variables to pass chatID etc
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == K.segue.showChangeGroupColour {
             let destinationVC = segue.destination as! GroupColour //Chose the right view controller. - Downcasting

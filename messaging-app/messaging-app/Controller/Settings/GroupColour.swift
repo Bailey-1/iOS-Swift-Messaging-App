@@ -21,9 +21,17 @@ class GroupColour: UIViewController {
     
     @IBAction func colourButtonPressed(_ sender: UIButton) {
         let newColour = sender.backgroundColor?.hexValue()
+        
+        //TODO - Move this to a model class
         if let safeNewColour = newColour {
             print(safeNewColour)
-            db.collection("conversations").document(chatId).setData([ "colour": safeNewColour], merge: true)
+            db.collection("conversations").document(chatId).setData([ "colour": safeNewColour], merge: true) { error in
+                if let safeError = error {
+                    print("An error occured: \(safeError)")
+                } else {
+                    print("Success")
+                }
+            }
         }
     }
 }
