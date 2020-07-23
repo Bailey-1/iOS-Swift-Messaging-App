@@ -13,9 +13,7 @@ import Firebase
 class ContactsViewController: UITableViewController {
     
     let db = Firestore.firestore()
-    
-    var currentUser: User?
-    
+        
     var conversations: [Conversation] = []
     
     var selectedConversationID: String?
@@ -23,34 +21,29 @@ class ContactsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
+        let user = Auth.auth().currentUser!
         // Get current user data
-        let a = Auth.auth().currentUser
-        if let user = a {
-            currentUser = user
-            
-            // get conversations with user email in
-            let conversationRef = db.collection("conversations").whereField("users", arrayContains: user.email!)
-            
-            // Get all documents and loop through them
-            conversationRef.getDocuments { (querySnapshot, error) in
-                if let error = error {
-                    print("There has been an error \(error)")
-                } else {
-                    for document in querySnapshot!.documents {
-                        print("Chat Name: \(document.data()["name"] as! String)")
-                        
-                        var newConversation = Conversation()
-                        newConversation.id = document.documentID
-                        newConversation.name = document.data()["name"] as! String
-                        self.conversations.append(newConversation)
-                    }
-                    self.tableView.reloadData()
+        // get conversations with user email in
+        let conversationRef = db.collection("conversations").whereField("users", arrayContains: user.email!)
+        
+        // Get all documents and loop through them
+        conversationRef.getDocuments { (querySnapshot, error) in
+            if let error = error {
+                print("There has been an error \(error)")
+            } else {
+                for document in querySnapshot!.documents {
+                    print("Chat Name: \(document.data()["name"] as! String)")
+                    
+                    var newConversation = Conversation()
+                    newConversation.id = document.documentID
+                    newConversation.name = document.data()["name"] as! String
+                    self.conversations.append(newConversation)
                 }
+                self.tableView.reloadData()
             }
         }
     }
-    
+
     @IBAction func logoutButtonPressed(_ sender: UIBarButtonItem) {
         let firebaseAuth = Auth.auth()
         do {

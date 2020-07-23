@@ -20,6 +20,9 @@ class MessagesViewController: UIViewController {
     @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var chatSettingsButton: UIBarButtonItem!
     
+    @IBOutlet weak var senderView: UIView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -32,6 +35,7 @@ class MessagesViewController: UIViewController {
         tableView.register(UINib(nibName: K.messageCellNib, bundle: nil), forCellReuseIdentifier: K.messageCellIdentifier)
         tableView.estimatedRowHeight = 150
         tableView.rowHeight = UITableView.automaticDimension
+        loadChatOptions()
         loadMessages()
         db.collection("conversations").document(conversationID).getDocument(completion: { (DocumentSnapshot, Error) in
             self.title = DocumentSnapshot?.data()!["name"] as? String
@@ -39,16 +43,37 @@ class MessagesViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        guard let navBar = navigationController?.navigationBar else {fatalError("Navigation controller does not exist")}
-
-        let bar = UINavigationBarAppearance()
-        bar.configureWithDefaultBackground()
-        navBar.standardAppearance = bar
-        navBar.compactAppearance = bar
-        navBar.scrollEdgeAppearance = bar
+//        guard let navBar = navigationController?.navigationBar else {fatalError("Navigation controller does not exist")}
+//
+//        let bar = UINavigationBarAppearance()
+//        bar.configureWithDefaultBackground()
+//        navBar.standardAppearance = bar
+//        navBar.compactAppearance = bar
+//        navBar.scrollEdgeAppearance = bar
     }
     
-    func loadMessages(){
+    func updateUI(with hexColour: String) {
+        guard let navBar = navigationController?.navigationBar else {fatalError("Navigation controller does not exist")}
+        navBar.tintColor = UIColor(hexString: hexColour)
+        senderView.backgroundColor = UIColor(hexString: hexColour)
+        sendButton.tintColor = UIColor(contrastingBlackOrWhiteColorOn: UIColor(hexString: hexColour)!, isFlat: true)
+    }
+    
+    func loadChatOptions() {
+        db.collection("conversations").document(conversationID).addSnapshotListener { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                // print(querySnapshot?.data())
+                let colour = querySnapshot?.data()!["colour"] as! String
+                if colour != "" {
+                    self.updateUI(with: colour)
+                }
+            }
+        }
+    }
+    
+    func loadMessages() {
         db.collection("conversations").document(conversationID).collection("messages").order(by: "time", descending: true).addSnapshotListener { (querySnapshot, err) in
             self.messages = []
             if let err = err {
@@ -76,21 +101,23 @@ class MessagesViewController: UIViewController {
     
     
     @IBAction func sendButtonPressed(_ sender: UIButton) {
-        if let messageContent = messageTextField.text, let fromEmail = Auth.auth().currentUser?.email {
-            db.collection("conversations").document(conversationID).collection("messages").addDocument(data: [
-                "fromEmail": fromEmail,
-                "text": messageContent,
-                "time": Date().timeIntervalSince1970
-            ]) { (error) in
-                if let e = error {
-                    print("Error with saving data to firestore")
-                    print(e)
-                } else {
-                    print("Success with saving data to firestore")
-                    
-                    // Run on the main thread since it updates UI
-                    DispatchQueue.main.async{
-                        self.messageTextField.text = ""
+        if messageTextField.text != "" {
+            if let messageContent = messageTextField.text, let fromEmail = Auth.auth().currentUser?.email {
+                db.collection("conversations").document(conversationID).collection("messages").addDocument(data: [
+                    "fromEmail": fromEmail,
+                    "text": messageContent,
+                    "time": Date().timeIntervalSince1970
+                ]) { (error) in
+                    if let e = error {
+                        print("Error with saving data to firestore")
+                        print(e)
+                    } else {
+                        print("Success with saving data to firestore")
+                        
+                        // Run on the main thread since it updates UI
+                        DispatchQueue.main.async{
+                            self.messageTextField.text = ""
+                        }
                     }
                 }
             }

@@ -21,3 +21,10 @@ struct Message {
     var fromEmail: String = ""
     var time: Timestamp?
 }
+
+struct User {
+    var email: String?
+    var name: String?
+    var userName: String?
+    var colour: String?
+}
