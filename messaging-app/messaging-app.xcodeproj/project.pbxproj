@@ -24,6 +24,7 @@
 		D974461F24C5DB6C002D45D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D974461D24C5DB6C002D45D8 /* LaunchScreen.storyboard */; };
 		D9A4753E24C9A4EE000FF7CC /* GroupMembers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A4753D24C9A4EE000FF7CC /* GroupMembers.swift */; };
 		D9A4754124C9B191000FF7CC /* MemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A4754024C9B191000FF7CC /* MemberView.swift */; };
+		D9AA472224CA388700328EB7 /* ChatManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AA472124CA388700328EB7 /* ChatManager.swift */; };
 		D9B44CB824C70CD900CE50C6 /* dump.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B44CB724C70CD900CE50C6 /* dump.swift */; };
 		D9B44CBA24C70DD300CE50C6 /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B44CB924C70DD300CE50C6 /* Conversation.swift */; };
 		D9BBB4D624C9FB2D00C20E5F /* AddUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BBB4D524C9FB2D00C20E5F /* AddUser.swift */; };
@@ -54,6 +55,7 @@
 		D974462024C5DB6C002D45D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D9A4753D24C9A4EE000FF7CC /* GroupMembers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupMembers.swift; sourceTree = "<group>"; };
 		D9A4754024C9B191000FF7CC /* MemberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberView.swift; sourceTree = "<group>"; };
+		D9AA472124CA388700328EB7 /* ChatManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatManager.swift; sourceTree = "<group>"; };
 		D9B44CB724C70CD900CE50C6 /* dump.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dump.swift; sourceTree = "<group>"; };
 		D9B44CB924C70DD300CE50C6 /* Conversation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conversation.swift; sourceTree = "<group>"; };
 		D9BBB4D524C9FB2D00C20E5F /* AddUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUser.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				D9B44CB924C70DD300CE50C6 /* Conversation.swift */,
+				D9AA472124CA388700328EB7 /* ChatManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -299,6 +302,7 @@
 				D974461A24C5DB6B002D45D8 /* messaging_app.xcdatamodeld in Sources */,
 				D9BBB4D624C9FB2D00C20E5F /* AddUser.swift in Sources */,
 				D9D8426524C7511F00E4C086 /* MessageBubble.swift in Sources */,
+				D9AA472224CA388700328EB7 /* ChatManager.swift in Sources */,
 				D9B44CB824C70CD900CE50C6 /* dump.swift in Sources */,
 				D974461424C5DB6B002D45D8 /* ViewController.swift in Sources */,
 				D95D404124C8C21D001984FD /* ChatSettings.swift in Sources */,

@@ -80,6 +80,7 @@ class MessagesViewController: UIViewController {
                     self.loadMessages()
                 }
             }
+            
         }
     }
     

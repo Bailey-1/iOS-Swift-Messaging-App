@@ -22,7 +22,7 @@ class MemberView: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("User: \(memberId)")
+        print("User: \(memberId!)")
         loadMember()
     }
     
