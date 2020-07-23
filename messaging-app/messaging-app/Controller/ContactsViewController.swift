@@ -78,7 +78,7 @@ extension ContactsViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == K.segue.showMessages {
             let destinationVC = segue.destination as! MessagesViewController //Chose the right view controller. - Downcasting
-            destinationVC.conversationID = selectedConversationID!
+            destinationVC.chatId = selectedConversationID!
         }
     }
 }
