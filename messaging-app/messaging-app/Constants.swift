@@ -22,5 +22,7 @@ struct K {
         static let showColourPicker = "showColourPicker"
         static let showChatMembers = "showChatMembers"
         static let showMemberView = "showMemberView"
+        
+        static let showAddUser = "showAddUser" 
     }
 }

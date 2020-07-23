@@ -28,7 +28,6 @@ class MessagesViewController: UIViewController {
         // Do any additional setup after loading the view.
         print(conversationID)
         
-        
         tableView.dataSource = self
         tableView.transform = CGAffineTransform(scaleX: 1, y: -1)
         tableView.separatorStyle = .none
@@ -65,9 +64,9 @@ class MessagesViewController: UIViewController {
                 print("Error getting documents: \(err)")
             } else {
                 // print(querySnapshot?.data())
-                let colour = querySnapshot?.data()!["colour"] as! String
-                if colour != "" {
-                    self.updateUI(with: colour)
+                let colour = querySnapshot?.data()!["colour"] as? String
+                if let safeColour = colour {
+                    self.updateUI(with: safeColour)
                 }
             }
         }
