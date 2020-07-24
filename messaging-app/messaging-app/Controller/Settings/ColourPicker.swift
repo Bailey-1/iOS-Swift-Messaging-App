@@ -22,6 +22,7 @@ class ColourPicker: UIViewController {
         super.viewDidLoad()
     }
     
+    // Reuseable function which returns the pressed colour button back to the delegate
     @IBAction func colourButtonPressed(_ sender: UIButton) {
         let newColour = sender.currentTitle
         if let safeNewColour = newColour {

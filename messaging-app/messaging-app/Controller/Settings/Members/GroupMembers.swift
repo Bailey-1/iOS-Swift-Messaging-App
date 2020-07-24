@@ -11,63 +11,63 @@ import Firebase
 
 class GroupMembers: UITableViewController {
     
-    var members: [User] = []
-    let db = Firestore.firestore()
-    var chatId: String?
-
-    var selectedRow: Int?
+    var chatMembersModel = GroupMembersModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadMembers()
-    }
-    
-    func loadMembers() {
-        if let safeChatId = chatId {
-            db.collection("conversations").document(safeChatId).collection("users").getDocuments() { (documents, err) in
-                if let err = err {
-                    print("Error getting documents: \(err)")
-                } else {
-                    for groupMember in documents!.documents {
-                        var newUser = User()
-                        newUser.email = groupMember.documentID
-                        newUser.name = (groupMember.data()["name"] as! String)
-                        newUser.userName = (groupMember.data()["userName"] as! String)
-                        newUser.colour = (groupMember.data()["colour"] as! String)
-                        self.members.append(newUser)
-                    }
-                    print("done")
-                    self.title = "Members (\(self.members.count))"
-                    self.tableView.reloadData()
-                }
-            }
-        }
+        
+        // basic config for chatMembersModel
+        chatMembersModel.delegate = self
+        
+        // Call the method to fetch all of the members of the current chat
+        chatMembersModel.loadMembers()
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("You selected cell #\(indexPath.row)!")
-        selectedRow = indexPath.row
+        chatMembersModel.selectedRow = indexPath.row
         self.performSegue(withIdentifier: K.segue.showMemberView, sender: self)
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return members.count
+        return chatMembersModel.members.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.textLabel!.text = members[indexPath.row].email
-        cell.detailTextLabel!.text = members[indexPath.row].name
+        cell.textLabel!.text = chatMembersModel.members[indexPath.row].email
+        cell.detailTextLabel!.text = chatMembersModel.members[indexPath.row].name
+        
+        // Update the colour of the cell from the user set colour and set text to contrast
+        if let safeColour = chatMembersModel.members[indexPath.row].colour {
+            cell.backgroundColor = UIColor(hexString: safeColour)
+            cell.textLabel?.textColor = UIColor(contrastingBlackOrWhiteColorOn: UIColor(hexString: safeColour)!, isFlat: true)
+            cell.detailTextLabel?.textColor = UIColor(contrastingBlackOrWhiteColorOn: UIColor(hexString: safeColour)!, isFlat: true)
+        }
+
         return cell
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == K.segue.showMemberView {
             let destinationVC = segue.destination as! MemberView //Chose the right view controller. - Downcasting
-            if let safeChatId = chatId {
-                destinationVC.chatId = safeChatId
-                destinationVC.memberId = members[selectedRow!].email
+            if let safeChatId = chatMembersModel.chatId {
+                destinationVC.memberViewModel.chatId = safeChatId
+                destinationVC.memberViewModel.memberId = chatMembersModel.members[chatMembersModel.selectedRow!].email
             }
         }
+    }
+}
+
+//MARK: - GroupMembers: GroupMembersModelDelegate
+
+extension GroupMembers: GroupMembersModelDelegate {
+    func updateTitle(title: String) {
+        self.title = title
+    }
+    
+    // Allow the model to update the tableview remotely
+    func updateTableView() {
+        tableView.reloadData()
     }
 }

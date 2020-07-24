@@ -7,16 +7,13 @@
 //
 
 import UIKit
-import Firebase
 
 class ChatSettings: UITableViewController {
-    
-    var chatId: String?
-    let db = Firestore.firestore()
 
+    var chatSettingsManager = ChatSettingsManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Chat ID: \(chatId!)")
     }
     
     // Set new VC variables to pass chatID etc
@@ -27,10 +24,13 @@ class ChatSettings: UITableViewController {
             
         } else if segue.identifier == K.segue.showChatMembers {
             let destinationVC = segue.destination as! GroupMembers //Choose the right view controller. - Downcasting
-            destinationVC.chatId = chatId
+            destinationVC.chatMembersModel.chatId = chatSettingsManager.chatId
+            
         } else if segue.identifier == K.segue.showAddUser {
             let destinationVC = segue.destination as! AddUser //Choose the right view controller. - Downcasting
-            destinationVC.chatId = chatId
+            if let safeChatId = chatSettingsManager.chatId {
+                destinationVC.addUserManager.chatId = safeChatId
+            }
         }
     }
 }
@@ -39,18 +39,6 @@ class ChatSettings: UITableViewController {
 
 extension ChatSettings: ColourPickerDelegate {
     func useColour(colour: String) {
-        // TODO - Move this to a model class
-        print(colour)
-        print("ChatSettings - ColourPickerDelegate")
-        if let safeChatId = chatId {
-            db.collection("conversations").document(safeChatId).setData([ "colour": colour], merge: true) { error in
-                if let safeError = error {
-                    print("An error occured: \(safeError)")
-                } else {
-                    print("Success")
-                }
-            }
-        }
-
+        chatSettingsManager.updateChatColour(colour: colour)
     }
 }

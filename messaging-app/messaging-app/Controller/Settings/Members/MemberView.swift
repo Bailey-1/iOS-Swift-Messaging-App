@@ -11,38 +11,25 @@ import Firebase
 
 class MemberView: UITableViewController {
     
-    let db = Firestore.firestore()
-    var chatId: String?
-    var memberId: String?
-    
     @IBOutlet weak var nameValueLabel: UILabel!
     @IBOutlet weak var usernameValueLabel: UILabel!
     @IBOutlet weak var colourValueLabel: UILabel!
     
     
+    @IBOutlet var tableViewCell: [UITableViewCell]!
+    
+    var memberViewModel = MemberViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("User: \(memberId)")
-        loadMember()
+        
+        memberViewModel.delegate = self
+        
+        print("User: \(memberViewModel.memberId!)")
+        memberViewModel.loadMember()
     }
     
-    func loadMember() {
-        if let safeChatId = chatId, let safeMemberId = memberId {
-            db.collection("conversations").document(safeChatId).collection("users").document(safeMemberId).addSnapshotListener { (document, err) in
-                if let err = err {
-                    print("Error getting document: \(err)")
-                } else {
-                    print("Success getting document")
-                    DispatchQueue.main.async {
-                        self.nameValueLabel.text = (document?.data()!["name"] as? String)
-                        self.usernameValueLabel.text = (document?.data()!["userName"] as? String)
-                        self.colourValueLabel.text = (document?.data()!["colour"] as? String)
-                    }
-                }
-            }
-        }
-    }
-    
+    // Show a popup to allow the user to change the username of one of the members in the chat
     func showChangeUsernameAlert() {
         var textField = UITextField()
         
@@ -50,19 +37,13 @@ class MemberView: UITableViewController {
         
         // Runs when add item button is pressed
         let action = UIAlertAction(title: "Change", style: .default) { (action) in
-            if let safeChatId = self.chatId, let safeMemberId = self.memberId, let safeText = textField.text {
-                self.db.collection("conversations").document(safeChatId).collection("users").document(safeMemberId).setData([ "userName": safeText], merge: true) { error in
-                    if let safeError = error {
-                        print("An error occured: \(safeError)")
-                    } else {
-                        print("Success")
-                    }
-                }
+            if let safeText = textField.text {
+                self.memberViewModel.updateUserName(newUserName: safeText)
             }
         }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .default) { (action) in
-            
+            // Empty on purpose
         }
         
         // Runs as soon as the textfield is created
@@ -76,6 +57,15 @@ class MemberView: UITableViewController {
         alert.addAction(cancelAction)
         present(alert, animated: true, completion: nil)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == K.segue.showColourPicker {
+            let destinationVC = segue.destination as! ColourPicker //Chose the right view controller. - Downcasting
+            destinationVC.delegate = self
+        }
+    }
+    
+    //MARK: - tableView Methods
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch (indexPath.row) {
@@ -91,13 +81,6 @@ class MemberView: UITableViewController {
         }
         tableView.deselectRow(at: indexPath, animated: true)
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == K.segue.showColourPicker {
-            let destinationVC = segue.destination as! ColourPicker //Chose the right view controller. - Downcasting
-            destinationVC.delegate = self
-        }
-    }
 }
 
 //MARK: - MemberView: GroupControlDelegate
@@ -105,14 +88,24 @@ class MemberView: UITableViewController {
 extension MemberView: ColourPickerDelegate {
     func useColour(colour: String) {
         print("MemberView has the colour \(colour)")
-        if let safeChatId = chatId, let safeMemberId = memberId {
-            db.collection("conversations").document(safeChatId).collection("users").document(safeMemberId).setData([ "colour": colour], merge: true) { error in
-                if let safeError = error {
-                    print("An error occured: \(safeError)")
-                } else {
-                    print("Success")
-                }
-            }
+        memberViewModel.updateUserColour(with: colour)
+    }
+}
+
+//MARK: - MemberView: MemberViewModelDelegate
+
+extension MemberView: MemberViewModelDelegate {
+    func showMemberDetails(name: String, userName: String, colour: String) {
+        self.tableView.backgroundColor = UIColor(hexString: colour)
+        
+        let contrastOfBackgroundColor = UIColor(contrastingBlackOrWhiteColorOn:  UIColor(hexString: colour)!, isFlat: true)
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: contrastOfBackgroundColor]
+        self.navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: contrastOfBackgroundColor]
+        
+        DispatchQueue.main.async {
+            self.nameValueLabel.text = name
+            self.usernameValueLabel.text = userName
+            self.colourValueLabel.text = colour
         }
     }
 }

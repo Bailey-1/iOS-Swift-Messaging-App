@@ -11,6 +11,7 @@ import Firebase
 
 class RegisterViewController: UIViewController {
     
+    @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
@@ -19,6 +20,8 @@ class RegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        backgroundView.backgroundColor = UIColor(gradientStyle: .topToBottom, withFrame: backgroundView.frame, andColors: K.colours.startUpMenu)
+
     }
     
     @IBAction func registerButtonPressed(_ sender: UIButton) {

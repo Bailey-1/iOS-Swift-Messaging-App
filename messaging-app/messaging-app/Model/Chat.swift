@@ -1,5 +1,5 @@
 //
-//  Conversation.swift
+//  Chat.swift
 //  messaging-app
 //
 //  Created by Bailey Search on 21/07/2020.
@@ -9,7 +9,7 @@
 import Foundation
 import Firebase
 
-struct Conversation {
+struct Chat {
     var id: String = ""
     var name: String = ""
     var users: [String] = []
