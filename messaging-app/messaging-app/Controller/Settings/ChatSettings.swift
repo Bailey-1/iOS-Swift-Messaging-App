@@ -24,7 +24,7 @@ class ChatSettings: UITableViewController {
             
         } else if segue.identifier == K.segue.showChatMembers {
             let destinationVC = segue.destination as! GroupMembers //Choose the right view controller. - Downcasting
-            destinationVC.groupMembersModel.chatId = chatSettingsManager.chatId
+            destinationVC.chatMembersModel.chatId = chatSettingsManager.chatId
             
         } else if segue.identifier == K.segue.showAddUser {
             let destinationVC = segue.destination as! AddUser //Choose the right view controller. - Downcasting
@@ -39,6 +39,6 @@ class ChatSettings: UITableViewController {
 
 extension ChatSettings: ColourPickerDelegate {
     func useColour(colour: String) {
-        chatSettingsManager.updateGroupColour(colour: colour)
+        chatSettingsManager.updateChatColour(colour: colour)
     }
 }

@@ -12,6 +12,13 @@ struct K {
     static let messageCellIdentifier = "messageCellIdentifier"
     static let messageCellNib = "MessageBubble"
     
+    struct db {
+        struct collection {
+            //todo: rename this in the firestore
+            static let chats = "conversations"
+        }
+    }
+    
     struct segue {
         static let showContactsFromRegister = "showContactsFromRegister"
         static let showContactsFromLogin = "showContactsFromLogin"

@@ -24,26 +24,37 @@ class MessagesManager {
     
     var delegate: MessagesManagerDelegate?
     
+    // Load the title for the navbar
     func loadTitle() {
         var result: String = ""
         if let safeChatId = chatId {
-            db.collection("conversations").document(safeChatId).getDocument(completion: { (DocumentSnapshot, Error) in
-                result = DocumentSnapshot?.data()!["name"] as! String
-                self.delegate?.updateTitle(title: result)
+            db.collection(K.db.collection.chats).document(safeChatId).getDocument(completion: { (DocumentSnapshot, err) in
+                if let err = err{
+                    print("Error: Cannot get chat chat title \(err)")
+                } else {
+                    
+                    // Fetch the name for the chat and use it as the title in the navigation controller
+                    
+                    result = DocumentSnapshot?.data()!["name"] as! String
+                    self.delegate?.updateTitle(title: result)
+                }
             })
         }
     }
     
+    // Load main chat colour
     func loadChatOptions() {
         loadTitle()
         var hexColourString = "ffffff"
 
         if let safeChatId = chatId {
-            db.collection("conversations").document(safeChatId).addSnapshotListener { (querySnapshot, err) in
+            db.collection(K.db.collection.chats).document(safeChatId).addSnapshotListener { (querySnapshot, err) in
                 if let err = err {
                     print("Error getting documents: \(err)")
                 } else {
-                    // print(querySnapshot?.data())
+                    
+                    // Get the current hex colour value set as "colour" in the document
+                    
                     let colour = querySnapshot?.data()!["colour"] as? String
                     if let safeColour = colour {
                         hexColourString = safeColour
@@ -54,6 +65,7 @@ class MessagesManager {
         }
     }
     
+    // Return coresponding colour for each message bubble from the sender email.
     func loadMessageColour(row: Int) -> String {
         var messageColour = "0A82E1"
         
@@ -64,25 +76,31 @@ class MessagesManager {
         return messageColour
     }
     
+    // Populate dictionary with sender emails and the coresponding colour for their messages to be shown in.
     func loadUserOptions() {
         if let safeChatId = chatId {
-            db.collection("conversations").document(safeChatId).collection("users").addSnapshotListener { (documents, err) in
+            db.collection(K.db.collection.chats).document(safeChatId).collection("users").addSnapshotListener { (documents, err) in
                 if let err = err {
                     print("Error getting documents: \(err)")
                 } else {
-                    for document in documents!.documents {
-                        self.userOptions[document.documentID] = (document.data()["colour"] as? String)
+                    
+                    // Loop through each user in the current chat
+                    
+                    for userDocument in documents!.documents {
+                        self.userOptions[userDocument.documentID] = (userDocument.data()["colour"] as? String)
                     }
+                    
+                    // Now call load messages since message colours have been saved.
                     self.loadMessages()
                 }
             }
-            
         }
     }
     
+    // Save new message to the database
     func sendMessage(message: String) {
         if let fromEmail = Auth.auth().currentUser?.email, let safeChatId = chatId {
-            db.collection("conversations").document(safeChatId).collection("messages").addDocument(data: [
+            db.collection(K.db.collection.chats).document(safeChatId).collection("messages").addDocument(data: [
                 "fromEmail": fromEmail,
                 "text": message,
                 "time": Date().timeIntervalSince1970
@@ -97,13 +115,17 @@ class MessagesManager {
         }
     }
     
+    // Load messages from the database
     func loadMessages() {
         if let safeChatId = chatId {
-            db.collection("conversations").document(safeChatId).collection("messages").order(by: "time", descending: true).addSnapshotListener { (querySnapshot, err) in
+            db.collection(K.db.collection.chats).document(safeChatId).collection("messages").order(by: "time", descending: true).addSnapshotListener { (querySnapshot, err) in
                 self.messages = []
                 if let err = err {
                     print("Error getting documents: \(err)")
                 } else {
+                    
+                    // Loop through each message in the collection and save it to messages array and update delegate
+                    
                     for message in querySnapshot!.documents {
                         print("Message ID: \(message.documentID) - Message Content")
                         
@@ -116,7 +138,6 @@ class MessagesManager {
                         self.messages.append(newMessage)
                         self.delegate?.updateMessages()
                     }
-                    
                 }
             }
         }

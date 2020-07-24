@@ -20,25 +20,28 @@ class ChatManager {
     
     var delegate: ChatManagerDelegate?
     
-    var conversations: [Conversation] = []
+    var chats: [Chat] = []
     var selectedChatId: String?
     
+    // Get all chats and add then to chats
     func loadChats() {
-        // Get all documents and loop through them
         if let safeEmail = currentUser?.email {
-            let conversationRef = db.collection("conversations").whereField("users", arrayContains: safeEmail)
+            let conversationRef = db.collection(K.db.collection.chats).whereField("users", arrayContains: safeEmail)
             
             conversationRef.getDocuments { (querySnapshot, error) in
                 if let error = error {
                     print("There has been an error \(error)")
                 } else {
-                    for document in querySnapshot!.documents {
-                        print("Chat Name: \(document.data()["name"] as! String)")
+                    
+                    // Loop through each chat where the current user email is saved
+                    
+                    for chat in querySnapshot!.documents {
+                        print("Chat Name: \(chat.data()["name"] as! String)")
                         
-                        var newConversation = Conversation()
-                        newConversation.id = document.documentID
-                        newConversation.name = document.data()["name"] as! String
-                        self.conversations.append(newConversation)
+                        var newConversation = Chat()
+                        newConversation.id = chat.documentID
+                        newConversation.name = chat.data()["name"] as! String
+                        self.chats.append(newConversation)
                     }
                     self.delegate?.updateViewTable()
                 }
@@ -46,6 +49,7 @@ class ChatManager {
         }
     }
     
+    // Sign the current user out
     func signUserOut() -> Bool {
         let firebaseAuth = Auth.auth()
         do {

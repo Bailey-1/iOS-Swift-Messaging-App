@@ -63,6 +63,8 @@ class MessagesViewController: UIViewController {
     }
 }
 
+//MARK: - MessagesViewController: UITableViewDataSource
+
 extension MessagesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return messagesManager.messages.count

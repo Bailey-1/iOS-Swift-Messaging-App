@@ -15,8 +15,9 @@ class ContactsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        chatManager.loadChats()
         chatManager.delegate = self
+        chatManager.loadChats()
+        
         tableView.rowHeight = 80
      }
 
@@ -33,20 +34,20 @@ class ContactsViewController: UITableViewController {
 //MARK: - UITableViewDelegate Stuff
 extension ContactsViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return chatManager.conversations.count
+        return chatManager.chats.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         
-        cell.textLabel?.text = chatManager.conversations[indexPath.row].name
+        cell.textLabel?.text = chatManager.chats[indexPath.row].name
         cell.accessoryType = .disclosureIndicator
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("ID: \(chatManager.conversations[indexPath.row].id) - Name: \(chatManager.conversations[indexPath.row].name)")
-        chatManager.selectedChatId = chatManager.conversations[indexPath.row].id
+        print("ID: \(chatManager.chats[indexPath.row].id) - Name: \(chatManager.chats[indexPath.row].name)")
+        chatManager.selectedChatId = chatManager.chats[indexPath.row].id
         self.performSegue(withIdentifier: K.segue.showMessages, sender: self)
     }
     

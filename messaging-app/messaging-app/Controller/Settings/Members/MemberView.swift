@@ -26,6 +26,7 @@ class MemberView: UITableViewController {
         memberViewModel.loadMember()
     }
     
+    // Show a popup to allow the user to change the username of one of the members in the chat
     func showChangeUsernameAlert() {
         var textField = UITextField()
         
@@ -34,7 +35,7 @@ class MemberView: UITableViewController {
         // Runs when add item button is pressed
         let action = UIAlertAction(title: "Change", style: .default) { (action) in
             if let safeText = textField.text {
-                self.memberViewModel.changeUserName(newUserName: safeText)
+                self.memberViewModel.updateUserName(newUserName: safeText)
             }
         }
         
@@ -54,6 +55,15 @@ class MemberView: UITableViewController {
         present(alert, animated: true, completion: nil)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == K.segue.showColourPicker {
+            let destinationVC = segue.destination as! ColourPicker //Chose the right view controller. - Downcasting
+            destinationVC.delegate = self
+        }
+    }
+    
+    //MARK: - tableView Methods
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch (indexPath.row) {
         case 1:
@@ -67,13 +77,6 @@ class MemberView: UITableViewController {
             break;
         }
         tableView.deselectRow(at: indexPath, animated: true)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == K.segue.showColourPicker {
-            let destinationVC = segue.destination as! ColourPicker //Chose the right view controller. - Downcasting
-            destinationVC.delegate = self
-        }
     }
 }
 

@@ -24,10 +24,10 @@ class AddUser: UIViewController {
         addUserManager.loadUsers()
     }
     
+    // Runs everytime textfield changes and updates the list of potential users
     @IBAction func textFieldDidChange(_ sender: UITextField) {
         print(sender.text!)
         let searchValue = sender.text!
-        
         addUserManager.updatePossibleUsers(searchValue: searchValue)
     }
 }
@@ -39,6 +39,7 @@ extension AddUser: UITableViewDataSource, UITableViewDelegate {
         return addUserManager.possibleUsers.count
     }
     
+    //TODO: Add an accessory checkmark to show if the user in the search list is already in the chat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         cell.textLabel!.text = addUserManager.possibleUsers[indexPath.row].email

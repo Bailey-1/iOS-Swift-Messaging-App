@@ -20,9 +20,10 @@ class MemberViewModel {
     
     var delegate: MemberViewModelDelegate?
     
+    // Load information based on the selected user - this is repeated and needs to be moved to a reuseable class for the whole project
     func loadMember() {
         if let safeChatId = chatId, let safeMemberId = memberId {
-            db.collection("conversations").document(safeChatId).collection("users").document(safeMemberId).addSnapshotListener { (document, err) in
+            db.collection(K.db.collection.chats).document(safeChatId).collection("users").document(safeMemberId).addSnapshotListener { (document, err) in
                 if let err = err {
                     print("Error getting document: \(err)")
                 } else {
@@ -36,9 +37,10 @@ class MemberViewModel {
         }
     }
     
+    // Update member's current colour
     func updateUserColour(with colour: String) {
         if let safeChatId = chatId, let safeMemberId = memberId {
-            db.collection("conversations").document(safeChatId).collection("users").document(safeMemberId).setData([ "colour": colour], merge: true) { error in
+            db.collection(K.db.collection.chats).document(safeChatId).collection("users").document(safeMemberId).setData([ "colour": colour], merge: true) { error in
                 if let safeError = error {
                     print("An error occured: \(safeError)")
                 } else {
@@ -48,9 +50,10 @@ class MemberViewModel {
         }
     }
     
-    func changeUserName(newUserName: String) {
+    // Update member's current userName
+    func updateUserName(newUserName: String) {
         if let safeChatId = self.chatId, let safeMemberId = self.memberId {
-            self.db.collection("conversations").document(safeChatId).collection("users").document(safeMemberId).setData([ "userName": newUserName], merge: true) { error in
+            self.db.collection(K.db.collection.chats).document(safeChatId).collection("users").document(safeMemberId).setData([ "userName": newUserName], merge: true) { error in
                 if let safeError = error {
                     print("An error occured: \(safeError)")
                 } else {

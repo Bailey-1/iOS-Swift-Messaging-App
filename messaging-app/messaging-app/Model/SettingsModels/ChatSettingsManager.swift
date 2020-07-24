@@ -13,13 +13,14 @@ class ChatSettingsManager {
     var chatId: String?
     let db = Firestore.firestore()
     
-    func updateGroupColour(colour: String) {
+    // Update the colour key with a new hex colour
+    func updateChatColour(colour: String) {
         if let safeChatId = chatId {
-            db.collection("conversations").document(safeChatId).setData([ "colour": colour], merge: true) { error in
-                if let safeError = error {
-                    print("An error occured: \(safeError)")
+            db.collection(K.db.collection.chats).document(safeChatId).setData(["colour": colour], merge: true) { err in
+                if let err = err {
+                    print("An error occured while updating chat colour: \(err)")
                 } else {
-                    print("Success")
+                    print("Success saving updated chat colour")
                 }
             }
         }

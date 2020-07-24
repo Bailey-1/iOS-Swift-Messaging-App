@@ -24,18 +24,22 @@ class GroupMembersModel {
     
     var delegate: GroupMembersModelDelegate?
     
+    // Load all chat members
     func loadMembers() {
         if let safeChatId = chatId {
-            db.collection("conversations").document(safeChatId).collection("users").getDocuments() { (documents, err) in
+            db.collection(K.db.collection.chats).document(safeChatId).collection("users").getDocuments() { (documents, err) in
                 if let err = err {
                     print("Error getting documents: \(err)")
                 } else {
-                    for groupMember in documents!.documents {
+                    
+                    // Iterates through each member in the chat and adds them to the member array
+                    
+                    for chatMember in documents!.documents {
                         var newUser = User()
-                        newUser.email = groupMember.documentID
-                        newUser.name = (groupMember.data()["name"] as! String)
-                        newUser.userName = (groupMember.data()["userName"] as! String)
-                        newUser.colour = (groupMember.data()["colour"] as! String)
+                        newUser.email = chatMember.documentID
+                        newUser.name = (chatMember.data()["name"] as! String)
+                        newUser.userName = (chatMember.data()["userName"] as! String)
+                        newUser.colour = (chatMember.data()["colour"] as! String)
                         self.members.append(newUser)
                     }
                     print("done")
