@@ -13,7 +13,6 @@ protocol ChatManagerDelegate {
     func updateViewTable()
 }
 
-
 class ChatManager {
     let db = Firestore.firestore()
     

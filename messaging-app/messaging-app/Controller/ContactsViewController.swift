@@ -17,7 +17,8 @@ class ContactsViewController: UITableViewController {
         // Do any additional setup after loading the view.
         chatManager.loadChats()
         chatManager.delegate = self
-    }
+        tableView.rowHeight = 80
+     }
 
     @IBAction func logoutButtonPressed(_ sender: UIBarButtonItem) {
         let signOutSuccess = chatManager.signUserOut()

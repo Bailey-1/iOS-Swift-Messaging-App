@@ -6,7 +6,7 @@
 //  Copyright © 2020 Bailey Search. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 struct K {
     static let messageCellIdentifier = "messageCellIdentifier"
@@ -24,5 +24,12 @@ struct K {
         static let showMemberView = "showMemberView"
         
         static let showAddUser = "showAddUser" 
+    }
+    
+    struct colours {
+        static let startUpMenu = [
+        UIColor(hexString: "787FF6")!,
+        UIColor(hexString: "4ADEDE")!]
+
     }
 }
