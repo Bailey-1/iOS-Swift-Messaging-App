@@ -24,7 +24,7 @@ class ChatSettings: UITableViewController {
             
         } else if segue.identifier == K.segue.showChatMembers {
             let destinationVC = segue.destination as! GroupMembers //Choose the right view controller. - Downcasting
-            destinationVC.chatId = chatSettingsManager.chatId
+            destinationVC.groupMembersModel.chatId = chatSettingsManager.chatId
             
         } else if segue.identifier == K.segue.showAddUser {
             let destinationVC = segue.destination as! AddUser //Choose the right view controller. - Downcasting

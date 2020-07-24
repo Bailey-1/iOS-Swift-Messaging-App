@@ -3,4 +3,118 @@
    uuid = "C179B326-59AC-4AED-8031-B0BBBCF8E342"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2ABD8610-CDBD-42D7-ACF1-4952BD931668"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "messaging-app/Model/SettingsModels/Members/MemberViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "loadMember()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "20F3D9A2-4BF3-4D4D-BA29-45BE7D2276C1"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "messaging-app/Model/SettingsModels/Members/MemberViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "loadMember()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "20F3D9A2-4BF3-4D4D-BA29-45BE7D2276C1 - 9cf1fa984e5a7c44"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRDocumentSnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in messaging_app.MemberViewModel.loadMember() -&gt; ()"
+                  moduleName = "messaging-app"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/baileysearch/Documents%20-%20Local/GitHub/Swift-iOS-Messaging-App/messaging-app/messaging-app/Model/SettingsModels/Members/MemberViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "32"
+                  endingLineNumber = "32"
+                  offsetFromSymbolStart = "2654">
+               </Location>
+               <Location
+                  uuid = "20F3D9A2-4BF3-4D4D-BA29-45BE7D2276C1 - 9cf1fa984e5a7c44"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRDocumentSnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in messaging_app.MemberViewModel.loadMember() -&gt; ()"
+                  moduleName = "messaging-app"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/baileysearch/Documents%20-%20Local/GitHub/Swift-iOS-Messaging-App/messaging-app/messaging-app/Model/SettingsModels/Members/MemberViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "32"
+                  endingLineNumber = "32"
+                  offsetFromSymbolStart = "2714">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EB4F1FE0-8159-440D-8E95-2B27DDCFF9E5"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "messaging-app/Controller/Settings/Members/MemberView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
+            landmarkName = "showMemberDetails(name:userName:colour:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "EB4F1FE0-8159-440D-8E95-2B27DDCFF9E5 - 3b3256e54d7db83d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "messaging_app.MemberView.showMemberDetails(name: Swift.String, userName: Swift.String, colour: Swift.String) -&gt; ()"
+                  moduleName = "messaging-app"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/baileysearch/Documents%20-%20Local/GitHub/Swift-iOS-Messaging-App/messaging-app/messaging-app/Controller/Settings/Members/MemberView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "93"
+                  endingLineNumber = "93"
+                  offsetFromSymbolStart = "294">
+               </Location>
+               <Location
+                  uuid = "EB4F1FE0-8159-440D-8E95-2B27DDCFF9E5 - e9663ae14b70f33f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in messaging_app.MemberView.showMemberDetails(name: Swift.String, userName: Swift.String, colour: Swift.String) -&gt; ()"
+                  moduleName = "messaging-app"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/baileysearch/Documents%20-%20Local/GitHub/Swift-iOS-Messaging-App/messaging-app/messaging-app/Controller/Settings/Members/MemberView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "94"
+                  endingLineNumber = "94"
+                  offsetFromSymbolStart = "240">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
