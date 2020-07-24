@@ -3,4 +3,102 @@
    uuid = "C179B326-59AC-4AED-8031-B0BBBCF8E342"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EDF568DC-2885-4D65-BDA8-B9B0C32B91A0"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "messaging-app/Controller/Settings/Members/MemberView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
+            landmarkName = "showMemberDetails(name:userName:colour:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "EDF568DC-2885-4D65-BDA8-B9B0C32B91A0 - 3b3256e54d7db83d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "messaging_app.MemberView.showMemberDetails(name: Swift.String, userName: Swift.String, colour: Swift.String) -&gt; ()"
+                  moduleName = "messaging-app"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/baileysearch/Documents%20-%20Local/GitHub/Swift-iOS-Messaging-App/messaging-app/messaging-app/Controller/Settings/Members/MemberView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "96"
+                  endingLineNumber = "96"
+                  offsetFromSymbolStart = "294">
+               </Location>
+               <Location
+                  uuid = "EDF568DC-2885-4D65-BDA8-B9B0C32B91A0 - e9663ae14b70f33f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in messaging_app.MemberView.showMemberDetails(name: Swift.String, userName: Swift.String, colour: Swift.String) -&gt; ()"
+                  moduleName = "messaging-app"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/baileysearch/Documents%20-%20Local/GitHub/Swift-iOS-Messaging-App/messaging-app/messaging-app/Controller/Settings/Members/MemberView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "97"
+                  endingLineNumber = "97"
+                  offsetFromSymbolStart = "240">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C635B079-7CDE-446F-80EE-13F3CE9430BC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "messaging-app/Model/SettingsModels/Members/MemberViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "loadMember()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "C635B079-7CDE-446F-80EE-13F3CE9430BC - 9cf1fa984e5a7c44"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRDocumentSnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in messaging_app.MemberViewModel.loadMember() -&gt; ()"
+                  moduleName = "messaging-app"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/baileysearch/Documents%20-%20Local/GitHub/Swift-iOS-Messaging-App/messaging-app/messaging-app/Model/SettingsModels/Members/MemberViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "544">
+               </Location>
+               <Location
+                  uuid = "C635B079-7CDE-446F-80EE-13F3CE9430BC - 9cf1fa984e5a7c44"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRDocumentSnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in messaging_app.MemberViewModel.loadMember() -&gt; ()"
+                  moduleName = "messaging-app"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/baileysearch/Documents%20-%20Local/GitHub/Swift-iOS-Messaging-App/messaging-app/messaging-app/Model/SettingsModels/Members/MemberViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "1092">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

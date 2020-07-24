@@ -15,6 +15,9 @@ class MemberView: UITableViewController {
     @IBOutlet weak var usernameValueLabel: UILabel!
     @IBOutlet weak var colourValueLabel: UILabel!
     
+    
+    @IBOutlet var tableViewCell: [UITableViewCell]!
+    
     var memberViewModel = MemberViewModel()
     
     override func viewDidLoad() {
@@ -93,6 +96,12 @@ extension MemberView: ColourPickerDelegate {
 
 extension MemberView: MemberViewModelDelegate {
     func showMemberDetails(name: String, userName: String, colour: String) {
+        self.tableView.backgroundColor = UIColor(hexString: colour)
+        
+        let contrastOfBackgroundColor = UIColor(contrastingBlackOrWhiteColorOn:  UIColor(hexString: colour)!, isFlat: true)
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: contrastOfBackgroundColor]
+        self.navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: contrastOfBackgroundColor]
+        
         DispatchQueue.main.async {
             self.nameValueLabel.text = name
             self.usernameValueLabel.text = userName

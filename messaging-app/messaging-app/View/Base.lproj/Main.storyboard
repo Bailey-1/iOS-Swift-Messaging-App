@@ -599,6 +599,9 @@
                         <outlet property="colourValueLabel" destination="XqN-dU-taf" id="Wcl-dA-TUS"/>
                         <outlet property="nameValueLabel" destination="PvF-y4-Oab" id="OlH-ba-P9J"/>
                         <outlet property="usernameValueLabel" destination="hIq-Yp-de7" id="Ckv-2k-DuM"/>
+                        <outletCollection property="tableViewCell" destination="mJ1-iz-dvC" collectionClass="NSMutableArray" id="z1l-tX-cbU"/>
+                        <outletCollection property="tableViewCell" destination="Wxo-ey-3LS" collectionClass="NSMutableArray" id="3k5-ie-3Od"/>
+                        <outletCollection property="tableViewCell" destination="ku2-eV-i7S" collectionClass="NSMutableArray" id="7dS-3g-Val"/>
                         <segue destination="pXr-xp-Mqh" kind="show" identifier="showColourPicker" id="DJo-eJ-kxs"/>
                     </connections>
                 </tableViewController>
@@ -1030,7 +1033,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="9RU-Ao-2W8"/>
+        <segue reference="DJo-eJ-kxs"/>
         <segue reference="dtH-db-HtZ"/>
     </inferredMetricsTieBreakers>
     <resources>

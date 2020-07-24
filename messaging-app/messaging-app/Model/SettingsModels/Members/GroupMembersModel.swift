@@ -27,10 +27,12 @@ class GroupMembersModel {
     // Load all chat members
     func loadMembers() {
         if let safeChatId = chatId {
-            db.collection(K.db.collection.chats).document(safeChatId).collection("users").getDocuments() { (documents, err) in
+            db.collection(K.db.collection.chats).document(safeChatId).collection("users").addSnapshotListener() { (documents, err) in
                 if let err = err {
                     print("Error getting documents: \(err)")
                 } else {
+                    
+                    self.members = []
                     
                     // Iterates through each member in the chat and adds them to the member array
                     

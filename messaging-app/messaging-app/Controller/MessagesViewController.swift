@@ -41,6 +41,10 @@ class MessagesViewController: UIViewController {
         messagesManager.loadChatOptions()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+    }
+    
+    
     @IBAction func sendButtonPressed(_ sender: UIButton) {
         if let safeMessage = messageTextField.text {
             messagesManager.sendMessage(message: safeMessage)

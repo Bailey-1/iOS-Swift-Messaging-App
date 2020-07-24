@@ -37,6 +37,14 @@ class GroupMembers: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         cell.textLabel!.text = chatMembersModel.members[indexPath.row].email
         cell.detailTextLabel!.text = chatMembersModel.members[indexPath.row].name
+        
+        // Update the colour of the cell from the user set colour and set text to contrast
+        if let safeColour = chatMembersModel.members[indexPath.row].colour {
+            cell.backgroundColor = UIColor(hexString: safeColour)
+            cell.textLabel?.textColor = UIColor(contrastingBlackOrWhiteColorOn: UIColor(hexString: safeColour)!, isFlat: true)
+            cell.detailTextLabel?.textColor = UIColor(contrastingBlackOrWhiteColorOn: UIColor(hexString: safeColour)!, isFlat: true)
+        }
+
         return cell
     }
     

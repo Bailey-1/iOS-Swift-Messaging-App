@@ -58,6 +58,7 @@ class MemberViewModel {
                     print("An error occured: \(safeError)")
                 } else {
                     print("Success")
+                    self.loadMember()
                 }
             }
         }
