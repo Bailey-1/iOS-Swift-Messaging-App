@@ -193,11 +193,14 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Chats" id="JU6-zz-MAp">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="x.square.fill" catalog="system" id="eAR-e1-dAU">
-                            <connections>
-                                <action selector="logoutButtonPressed:" destination="6Jw-pw-pL3" id="yjN-Wb-pW0"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Item" image="gear" catalog="system" id="DRp-1r-2g9">
+                                <connections>
+                                    <segue destination="6cn-MO-R8f" kind="show" id="9Ro-JF-x44"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="add" id="ftx-e8-eQK"/>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <segue destination="37S-dU-X8N" kind="show" identifier="showMessages" id="VWR-6Z-n0N"/>
@@ -1013,6 +1016,28 @@
             </objects>
             <point key="canvasLocation" x="2008.6956521739132" y="-344.19642857142856"/>
         </scene>
+        <!--Settings-->
+        <scene sceneID="g01-Rb-0Ms">
+            <objects>
+                <viewController id="6cn-MO-R8f" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qXq-cA-OhC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="97M-ru-T2N"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Settings" id="dfc-rN-RIy">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="x.square.fill" catalog="system" id="eAR-e1-dAU">
+                            <connections>
+                                <action selector="logoutButtonPressed:" destination="6Jw-pw-pL3" id="yjN-Wb-pW0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ugF-y9-ti3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3032" y="-850"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="vmg-l2-sKD">
             <objects>
@@ -1037,6 +1062,7 @@
         <segue reference="dtH-db-HtZ"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="gear" catalog="system" width="128" height="119"/>
         <image name="info.circle" catalog="system" width="128" height="121"/>
         <image name="paperplane.fill" catalog="system" width="128" height="121"/>
         <image name="x.square.fill" catalog="system" width="128" height="114"/>

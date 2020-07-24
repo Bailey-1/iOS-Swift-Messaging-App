@@ -23,10 +23,17 @@ class GroupMembers: UITableViewController {
         chatMembersModel.loadMembers()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: K.navController.largeTextColour]
+        navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: K.navController.largeTextColour]
+        navigationController?.navigationBar.tintColor = .systemBlue
+    }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("You selected cell #\(indexPath.row)!")
         chatMembersModel.selectedRow = indexPath.row
         self.performSegue(withIdentifier: K.segue.showMemberView, sender: self)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

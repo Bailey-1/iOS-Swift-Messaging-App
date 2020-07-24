@@ -39,4 +39,9 @@ struct K {
         UIColor(hexString: "4ADEDE")!]
 
     }
+    
+    struct navController {
+        static let largeTextColour = #colorLiteral(red: 0.1490027606, green: 0.1490303874, blue: 0.1489966214, alpha: 1)
+        static let secondaryTextColour = UIColor.systemBlue
+    }
 }

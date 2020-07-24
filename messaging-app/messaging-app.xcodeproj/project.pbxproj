@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		8190EA7A232B5EBFAE2EA8EA /* Pods_messaging_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7CF61650950266DE9F9755B /* Pods_messaging_app.framework */; };
 		D93140BD24CB0F5900158EF9 /* ChatSettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93140BC24CB0F5900158EF9 /* ChatSettingsManager.swift */; };
+		D944D33A24CB4C9000208337 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D944D33924CB4C9000208337 /* AppSettings.swift */; };
+		D944D33C24CB4CAB00208337 /* CreateChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = D944D33B24CB4CAB00208337 /* CreateChat.swift */; };
 		D95D404124C8C21D001984FD /* ChatSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95D404024C8C21D001984FD /* ChatSettings.swift */; };
 		D95D404324C8C28D001984FD /* ColourPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95D404224C8C28D001984FD /* ColourPicker.swift */; };
 		D962D89124C5E89400C9E460 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D962D89024C5E89400C9E460 /* LoginViewController.swift */; };
@@ -30,7 +32,6 @@
 		D9A4754124C9B191000FF7CC /* MemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A4754024C9B191000FF7CC /* MemberView.swift */; };
 		D9AA472224CA388700328EB7 /* ChatManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AA472124CA388700328EB7 /* ChatManager.swift */; };
 		D9AA472424CA3FBE00328EB7 /* MessagesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AA472324CA3FBE00328EB7 /* MessagesManager.swift */; };
-		D9B44CB824C70CD900CE50C6 /* dump.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B44CB724C70CD900CE50C6 /* dump.swift */; };
 		D9B44CBA24C70DD300CE50C6 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B44CB924C70DD300CE50C6 /* Chat.swift */; };
 		D9BBB4D624C9FB2D00C20E5F /* AddUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BBB4D524C9FB2D00C20E5F /* AddUser.swift */; };
 		D9D8426324C7505D00E4C086 /* MessageBubble.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9D8426224C7505D00E4C086 /* MessageBubble.xib */; };
@@ -43,6 +44,8 @@
 		9A82BAD1BBA84AA1FC8598C7 /* Pods-messaging-app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-messaging-app.release.xcconfig"; path = "Target Support Files/Pods-messaging-app/Pods-messaging-app.release.xcconfig"; sourceTree = "<group>"; };
 		C7CF61650950266DE9F9755B /* Pods_messaging_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_messaging_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D93140BC24CB0F5900158EF9 /* ChatSettingsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatSettingsManager.swift; sourceTree = "<group>"; };
+		D944D33924CB4C9000208337 /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
+		D944D33B24CB4CAB00208337 /* CreateChat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChat.swift; sourceTree = "<group>"; };
 		D95D404024C8C21D001984FD /* ChatSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatSettings.swift; sourceTree = "<group>"; };
 		D95D404224C8C28D001984FD /* ColourPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColourPicker.swift; sourceTree = "<group>"; };
 		D962D89024C5E89400C9E460 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -66,7 +69,6 @@
 		D9A4754024C9B191000FF7CC /* MemberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberView.swift; sourceTree = "<group>"; };
 		D9AA472124CA388700328EB7 /* ChatManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatManager.swift; sourceTree = "<group>"; };
 		D9AA472324CA3FBE00328EB7 /* MessagesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesManager.swift; sourceTree = "<group>"; };
-		D9B44CB724C70CD900CE50C6 /* dump.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dump.swift; sourceTree = "<group>"; };
 		D9B44CB924C70DD300CE50C6 /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 		D9BBB4D524C9FB2D00C20E5F /* AddUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUser.swift; sourceTree = "<group>"; };
 		D9D8426224C7505D00E4C086 /* MessageBubble.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageBubble.xib; sourceTree = "<group>"; };
@@ -136,6 +138,8 @@
 				D962D89624C5F9F100C9E460 /* ContactsViewController.swift */,
 				D962D89824C5F9FE00C9E460 /* MessagesViewController.swift */,
 				D95D403F24C8C167001984FD /* Settings */,
+				D944D33924CB4C9000208337 /* AppSettings.swift */,
+				D944D33B24CB4CAB00208337 /* CreateChat.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -172,7 +176,6 @@
 				D974461824C5DB6B002D45D8 /* messaging_app.xcdatamodeld */,
 				D9DE2A9D24C5E38D00C3F594 /* GoogleService-Info.plist */,
 				D962D89424C5EDA000C9E460 /* Constants.swift */,
-				D9B44CB724C70CD900CE50C6 /* dump.swift */,
 			);
 			path = "messaging-app";
 			sourceTree = "<group>";
@@ -336,13 +339,14 @@
 				D9D8426524C7511F00E4C086 /* MessageBubble.swift in Sources */,
 				D98D37D024CB129E006339BE /* AddUserManager.swift in Sources */,
 				D9AA472224CA388700328EB7 /* ChatManager.swift in Sources */,
-				D9B44CB824C70CD900CE50C6 /* dump.swift in Sources */,
 				D974461424C5DB6B002D45D8 /* ViewController.swift in Sources */,
 				D95D404124C8C21D001984FD /* ChatSettings.swift in Sources */,
 				D974461024C5DB6B002D45D8 /* AppDelegate.swift in Sources */,
 				D962D89924C5F9FE00C9E460 /* MessagesViewController.swift in Sources */,
 				D95D404324C8C28D001984FD /* ColourPicker.swift in Sources */,
+				D944D33A24CB4C9000208337 /* AppSettings.swift in Sources */,
 				D9B44CBA24C70DD300CE50C6 /* Chat.swift in Sources */,
+				D944D33C24CB4CAB00208337 /* CreateChat.swift in Sources */,
 				D962D89324C5E8A000C9E460 /* RegisterViewController.swift in Sources */,
 				D962D89524C5EDA000C9E460 /* Constants.swift in Sources */,
 				D962D89724C5F9F100C9E460 /* ContactsViewController.swift in Sources */,

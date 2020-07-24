@@ -22,6 +22,8 @@ class MessagesViewController: UIViewController {
     
     var chatId: String?
     
+    var chatColour: UIColor?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -41,9 +43,17 @@ class MessagesViewController: UIViewController {
         messagesManager.loadChatOptions()
     }
     
+    // Ensure that the chat colour will always appear on this screen regardless of the screens after
     override func viewWillAppear(_ animated: Bool) {
+        guard let navBar = navigationController?.navigationBar else {fatalError("Navigation controller does not exist")}
+        
+        // Will always fail on the VC first load but will run when VC after is dismissed - resets colours to be consistant
+        if let safeChatColour = chatColour {
+            navBar.titleTextAttributes = [.foregroundColor: safeChatColour]
+            navBar.largeTitleTextAttributes = [.foregroundColor: safeChatColour]
+            navBar.tintColor = safeChatColour
+        }
     }
-    
     
     @IBAction func sendButtonPressed(_ sender: UIButton) {
         if let safeMessage = messageTextField.text {
@@ -76,7 +86,9 @@ extension MessagesViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.messageCellIdentifier, for: indexPath) as! MessageBubble
-        cell.nameLabel.text = messagesManager.messages[indexPath.row].fromEmail
+        
+        
+        cell.nameLabel.text = messagesManager.displayName[messagesManager.messages[indexPath.row].fromEmail]
         cell.textContent.text = messagesManager.messages[indexPath.row].text
         
         let hexCode = messagesManager.loadMessageColour(row: indexPath.row)
@@ -97,9 +109,14 @@ extension MessagesViewController: UITableViewDataSource {
 extension MessagesViewController: MessagesManagerDelegate {
     func updateUI(hexColour: String) {
         guard let navBar = navigationController?.navigationBar else {fatalError("Navigation controller does not exist")}
-        navBar.tintColor = UIColor(hexString: hexColour)
-        senderView.backgroundColor = UIColor(hexString: hexColour)
-        sendButton.tintColor = UIColor(contrastingBlackOrWhiteColorOn: UIColor(hexString: hexColour)!, isFlat: true)
+        
+        chatColour = UIColor(hexString: hexColour)!
+        navBar.titleTextAttributes = [.foregroundColor: chatColour!]
+        navBar.largeTitleTextAttributes = [.foregroundColor: chatColour!]
+        navBar.tintColor = chatColour
+        
+        senderView.backgroundColor = chatColour
+        sendButton.tintColor = UIColor(contrastingBlackOrWhiteColorOn: chatColour!, isFlat: true)
     }
     
     func updateTitle(title: String) {

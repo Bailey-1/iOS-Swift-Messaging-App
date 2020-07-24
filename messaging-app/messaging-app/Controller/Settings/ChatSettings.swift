@@ -16,6 +16,12 @@ class ChatSettings: UITableViewController {
         super.viewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: K.navController.largeTextColour]
+        navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: K.navController.largeTextColour]
+        navigationController?.navigationBar.tintColor = K.navController.secondaryTextColour
+    }
+    
     // Set new VC variables to pass chatID etc
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == K.segue.showColourPicker {
@@ -32,6 +38,10 @@ class ChatSettings: UITableViewController {
                 destinationVC.addUserManager.chatId = safeChatId
             }
         }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 

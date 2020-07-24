@@ -20,6 +20,7 @@ class MessagesManager {
     
     var messages: [Message] = []
     var userOptions: [String: String] = [:]
+    var displayName: [String: String] = [:]
     var chatId: String?
     
     var delegate: MessagesManagerDelegate?
@@ -88,6 +89,8 @@ class MessagesManager {
                     
                     for userDocument in documents!.documents {
                         self.userOptions[userDocument.documentID] = (userDocument.data()["colour"] as? String)
+                        
+                        self.displayName[userDocument.documentID] = userDocument.data()["userName"] as! String != "" ? userDocument.data()["userName"]  as! String : userDocument.data()["name"] as! String
                     }
                     
                     // Now call load messages since message colours have been saved.

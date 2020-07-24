@@ -20,7 +20,14 @@ class ContactsViewController: UITableViewController {
         
         tableView.rowHeight = 80
      }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: K.navController.largeTextColour]
+        navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: K.navController.largeTextColour]
+        navigationController?.navigationBar.tintColor = K.navController.secondaryTextColour
+    }
 
+    //TODO: Move this to a proper settings area
     @IBAction func logoutButtonPressed(_ sender: UIBarButtonItem) {
         let signOutSuccess = chatManager.signUserOut()
         if signOutSuccess {

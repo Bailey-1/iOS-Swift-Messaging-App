@@ -101,6 +101,7 @@ extension MemberView: MemberViewModelDelegate {
         let contrastOfBackgroundColor = UIColor(contrastingBlackOrWhiteColorOn:  UIColor(hexString: colour)!, isFlat: true)
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: contrastOfBackgroundColor]
         self.navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: contrastOfBackgroundColor]
+        self.navigationController?.navigationBar.tintColor = contrastOfBackgroundColor
         
         DispatchQueue.main.async {
             self.nameValueLabel.text = name
