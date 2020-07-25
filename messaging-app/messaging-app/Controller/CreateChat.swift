@@ -8,6 +8,7 @@
 
 import UIKit
 
-class CreateChat {
+class CreateChat: UIViewController {
+    
     
 }

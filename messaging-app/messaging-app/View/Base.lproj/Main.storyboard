@@ -24,7 +24,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="38" translatesAutoresizingMaskIntoConstraints="NO" id="eHb-1T-JGY">
                                 <rect key="frame" x="50" y="624" width="314" height="188"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zKd-WP-qYS">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zKd-WP-qYS" customClass="CustomButton" customModule="messaging_app" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="314" height="75"/>
                                         <color key="backgroundColor" red="0.18198148906230927" green="0.69426733255386353" blue="0.53024792671203613" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -33,11 +33,14 @@
                                         <state key="normal" title="Register">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <segue destination="HGt-yg-Igs" kind="show" id="KEv-nu-HQE"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="McX-PP-Sht">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="McX-PP-Sht" customClass="CustomButton" customModule="messaging_app" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="113" width="314" height="75"/>
                                         <color key="backgroundColor" red="0.12637259066104889" green="0.12639245390892029" blue="0.12636536359786987" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -46,6 +49,9 @@
                                         <state key="normal" title="Login">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <segue destination="EvZ-8Z-BIm" kind="show" id="GZC-kn-Mvh"/>
                                         </connections>
@@ -131,7 +137,7 @@
                                     <constraint firstItem="LlQ-uw-FLr" firstAttribute="leading" secondItem="MBW-e0-KuX" secondAttribute="leading" id="Xqh-Fs-c08"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cqc-3I-OMC">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cqc-3I-OMC" customClass="CustomButton" customModule="messaging_app" customModuleProvider="target">
                                 <rect key="frame" x="50" y="787" width="314" height="75"/>
                                 <color key="backgroundColor" red="0.12637259066104889" green="0.12639245390892029" blue="0.12636536359786987" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -140,6 +146,9 @@
                                 <state key="normal" title="Login">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="loginButtonPressed:" destination="EvZ-8Z-BIm" eventType="touchUpInside" id="JZD-1C-s77"/>
                                 </connections>
@@ -199,7 +208,11 @@
                                     <segue destination="6cn-MO-R8f" kind="show" id="9Ro-JF-x44"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem systemItem="add" id="ftx-e8-eQK"/>
+                            <barButtonItem systemItem="add" id="ftx-e8-eQK">
+                                <connections>
+                                    <segue destination="n3y-IG-yqe" kind="show" id="sl3-lg-69c"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
@@ -978,7 +991,7 @@
                                     <constraint firstAttribute="trailing" secondItem="Vqy-46-p7i" secondAttribute="trailing" id="t5z-qX-Po7"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v3W-cW-IXI">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v3W-cW-IXI" customClass="CustomButton" customModule="messaging_app" customModuleProvider="target">
                                 <rect key="frame" x="50" y="787" width="314" height="75"/>
                                 <color key="backgroundColor" red="0.18198148906230927" green="0.69426733255386353" blue="0.53024792671203613" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -987,6 +1000,9 @@
                                 <state key="normal" title="Register">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="registerButtonPressed:" destination="HGt-yg-Igs" eventType="touchUpInside" id="NaF-aW-3bg"/>
                                 </connections>
@@ -1016,6 +1032,75 @@
             </objects>
             <point key="canvasLocation" x="2008.6956521739132" y="-344.19642857142856"/>
         </scene>
+        <!--Create Chat-->
+        <scene sceneID="ogF-rA-lNC">
+            <objects>
+                <viewController id="n3y-IG-yqe" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kUh-bC-uBO">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="Axg-Jq-eT8">
+                                <rect key="frame" x="50" y="340" width="314" height="216"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="u7r-89-O2k">
+                                        <rect key="frame" x="0.0" y="0.0" width="314" height="83"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chat Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dah-PD-GwK">
+                                                <rect key="frame" x="0.0" y="0.0" width="90.5" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tBC-lL-cPs">
+                                                <rect key="frame" x="0.0" y="49" width="314" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="tBC-lL-cPs" firstAttribute="leading" secondItem="u7r-89-O2k" secondAttribute="leading" id="OPM-SI-Qam"/>
+                                            <constraint firstAttribute="trailing" secondItem="tBC-lL-cPs" secondAttribute="trailing" id="YzV-sl-IXw"/>
+                                        </constraints>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vsb-WS-q2R" customClass="CustomButton" customModule="messaging_app" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="133" width="314" height="83"/>
+                                        <color key="backgroundColor" red="0.17257410287857056" green="0.21834245324134827" blue="0.44677489995956421" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Create">
+                                            <color key="titleColor" red="0.90823972225189209" green="0.92638683319091797" blue="0.9317171573638916" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="157"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="u7r-89-O2k" secondAttribute="trailing" id="Idh-oD-bmC"/>
+                                    <constraint firstItem="u7r-89-O2k" firstAttribute="leading" secondItem="Axg-Jq-eT8" secondAttribute="leading" id="YhT-vv-eak"/>
+                                    <constraint firstAttribute="trailing" secondItem="vsb-WS-q2R" secondAttribute="trailing" id="a31-dc-Zen"/>
+                                    <constraint firstItem="vsb-WS-q2R" firstAttribute="leading" secondItem="Axg-Jq-eT8" secondAttribute="leading" id="hvS-u8-gaN"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Axg-Jq-eT8" firstAttribute="centerX" secondItem="kUh-bC-uBO" secondAttribute="centerX" id="BHh-70-RZg"/>
+                            <constraint firstItem="Axg-Jq-eT8" firstAttribute="leading" secondItem="FU7-SF-0ap" secondAttribute="leading" constant="50" id="Mmp-tL-SWk"/>
+                            <constraint firstItem="Axg-Jq-eT8" firstAttribute="centerY" secondItem="kUh-bC-uBO" secondAttribute="centerY" id="PxX-vX-tb7"/>
+                            <constraint firstItem="FU7-SF-0ap" firstAttribute="trailing" secondItem="Axg-Jq-eT8" secondAttribute="trailing" constant="50" id="t3K-j1-h1r"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="FU7-SF-0ap"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Create Chat" id="KjR-Wa-hIO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pW9-PK-6lO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3029" y="-638"/>
+        </scene>
         <!--Settings-->
         <scene sceneID="g01-Rb-0Ms">
             <objects>
@@ -1036,7 +1121,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ugF-y9-ti3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3032" y="-850"/>
+            <point key="canvasLocation" x="4157" y="-787"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="vmg-l2-sKD">
@@ -1059,7 +1144,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="DJo-eJ-kxs"/>
-        <segue reference="dtH-db-HtZ"/>
+        <segue reference="yx3-VY-OgS"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="gear" catalog="system" width="128" height="119"/>
