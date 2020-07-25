@@ -17,6 +17,11 @@ struct K {
             //todo: rename this in the firestore
             static let chats = "conversations"
         }
+        
+        struct defaults {
+            static let chatColour = "00CD42" // Set the default colour for the chat
+            static let userColour = "0A82E1" // Set the default colour for the user
+        }
     }
     
     struct segue {

@@ -1,5 +1,5 @@
 //
-//  AddUser.swift
+//  AddUserViewController.swift
 //  messaging-app
 //
 //  Created by Bailey Search on 23/07/2020.
@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class AddUser: UIViewController {
+class AddUserViewController: UIViewController {
         
     @IBOutlet weak var tableView: UITableView!
     
@@ -32,9 +32,9 @@ class AddUser: UIViewController {
     }
 }
 
-//MARK: - AddUser - UITableViewDataSource
+//MARK: - AddUserViewController - UITableViewDataSource
 
-extension AddUser: UITableViewDataSource, UITableViewDelegate {
+extension AddUserViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return addUserManager.possibleUsers.count
     }
@@ -54,9 +54,9 @@ extension AddUser: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
-//MARK: - AddUser: AddUserManagerDelegate
+//MARK: - AddUserViewController: AddUserManagerDelegate
 
-extension AddUser: AddUserManagerDelegate {
+extension AddUserViewController: AddUserManagerDelegate {
     func updateTableView() {
         tableView.reloadData()
     }

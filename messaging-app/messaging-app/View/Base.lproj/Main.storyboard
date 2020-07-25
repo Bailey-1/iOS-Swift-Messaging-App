@@ -226,7 +226,7 @@
         <!--Chat Settings-->
         <scene sceneID="qU2-lI-sE4">
             <objects>
-                <tableViewController id="cOM-yL-IBM" customClass="ChatSettings" customModule="messaging_app" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="cOM-yL-IBM" customClass="ChatSettingsViewController" customModule="messaging_app" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="insetGrouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="7rp-Nz-7uR">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -358,7 +358,7 @@
         <!--Add User-->
         <scene sceneID="fMQ-1h-qbM">
             <objects>
-                <viewController id="tkO-aZ-7Xr" customClass="AddUser" customModule="messaging_app" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="tkO-aZ-7Xr" customClass="AddUserViewController" customModule="messaging_app" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5X2-2o-uNQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -452,7 +452,7 @@
         <!--Members-->
         <scene sceneID="Moo-57-X2K">
             <objects>
-                <tableViewController id="wxH-zz-D0w" customClass="GroupMembers" customModule="messaging_app" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="wxH-zz-D0w" customClass="GroupMembersViewController" customModule="messaging_app" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="neB-3D-UvN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -500,7 +500,7 @@
         <!--Name-->
         <scene sceneID="ovd-PW-eKq">
             <objects>
-                <tableViewController id="vmZ-cf-2DO" customClass="MemberView" customModule="messaging_app" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="vmZ-cf-2DO" customClass="MemberViewViewController" customModule="messaging_app" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="izj-Ty-rxX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -628,7 +628,7 @@
         <!--Change Colour-->
         <scene sceneID="d1e-W0-G2t">
             <objects>
-                <viewController id="pXr-xp-Mqh" customClass="ColourPicker" customModule="messaging_app" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="pXr-xp-Mqh" customClass="ColourPickerViewController" customModule="messaging_app" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KWv-jo-SZ6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1035,7 +1035,7 @@
         <!--Create Chat-->
         <scene sceneID="ogF-rA-lNC">
             <objects>
-                <viewController id="n3y-IG-yqe" sceneMemberID="viewController">
+                <viewController id="n3y-IG-yqe" customClass="CreateChatViewController" customModule="messaging_app" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kUh-bC-uBO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1046,8 +1046,8 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="u7r-89-O2k">
                                         <rect key="frame" x="0.0" y="0.0" width="314" height="83"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chat Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dah-PD-GwK">
-                                                <rect key="frame" x="0.0" y="0.0" width="90.5" height="34"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dah-PD-GwK">
+                                                <rect key="frame" x="0.0" y="0.0" width="50" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -1076,6 +1076,9 @@
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="createButtonPressed:" destination="n3y-IG-yqe" eventType="touchUpInside" id="rpS-Zm-kCD"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -1096,6 +1099,9 @@
                         <viewLayoutGuide key="safeArea" id="FU7-SF-0ap"/>
                     </view>
                     <navigationItem key="navigationItem" title="Create Chat" id="KjR-Wa-hIO"/>
+                    <connections>
+                        <outlet property="nameTextField" destination="tBC-lL-cPs" id="hO3-Wx-CYh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pW9-PK-6lO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1104,7 +1110,7 @@
         <!--Settings-->
         <scene sceneID="g01-Rb-0Ms">
             <objects>
-                <viewController id="6cn-MO-R8f" sceneMemberID="viewController">
+                <viewController id="6cn-MO-R8f" customClass="AppSettingsViewController" customModule="messaging_app" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qXq-cA-OhC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

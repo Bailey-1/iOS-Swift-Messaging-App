@@ -1,5 +1,5 @@
 //
-//  MemberView.swift
+//  MemberViewViewController.swift
 //  messaging-app
 //
 //  Created by Bailey Search on 23/07/2020.
@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class MemberView: UITableViewController {
+class MemberViewViewController: UITableViewController {
     
     @IBOutlet weak var nameValueLabel: UILabel!
     @IBOutlet weak var usernameValueLabel: UILabel!
@@ -60,7 +60,7 @@ class MemberView: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == K.segue.showColourPicker {
-            let destinationVC = segue.destination as! ColourPicker //Chose the right view controller. - Downcasting
+            let destinationVC = segue.destination as! ColourPickerViewController //Chose the right view controller. - Downcasting
             destinationVC.delegate = self
         }
     }
@@ -83,18 +83,18 @@ class MemberView: UITableViewController {
     }
 }
 
-//MARK: - MemberView: GroupControlDelegate
+//MARK: - MemberViewViewController: GroupControlDelegate
 
-extension MemberView: ColourPickerDelegate {
+extension MemberViewViewController: ColourPickerDelegate {
     func useColour(colour: String) {
-        print("MemberView has the colour \(colour)")
+        print("MemberViewViewController has the colour \(colour)")
         memberViewModel.updateUserColour(with: colour)
     }
 }
 
-//MARK: - MemberView: MemberViewModelDelegate
+//MARK: - MemberViewViewController: MemberViewModelDelegate
 
-extension MemberView: MemberViewModelDelegate {
+extension MemberViewViewController: MemberViewModelDelegate {
     func showMemberDetails(name: String, userName: String, colour: String) {
         self.tableView.backgroundColor = UIColor(hexString: colour)
         

@@ -1,5 +1,5 @@
 //
-//  GroupMembers.swift
+//  GroupMembersViewController.swift
 //  messaging-app
 //
 //  Created by Bailey Search on 23/07/2020.
@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class GroupMembers: UITableViewController {
+class GroupMembersViewController: UITableViewController {
     
     var chatMembersModel = GroupMembersModel()
     
@@ -57,7 +57,7 @@ class GroupMembers: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == K.segue.showMemberView {
-            let destinationVC = segue.destination as! MemberView //Chose the right view controller. - Downcasting
+            let destinationVC = segue.destination as! MemberViewViewController //Chose the right view controller. - Downcasting
             if let safeChatId = chatMembersModel.chatId {
                 destinationVC.memberViewModel.chatId = safeChatId
                 destinationVC.memberViewModel.memberId = chatMembersModel.members[chatMembersModel.selectedRow!].email
@@ -66,9 +66,9 @@ class GroupMembers: UITableViewController {
     }
 }
 
-//MARK: - GroupMembers: GroupMembersModelDelegate
+//MARK: - GroupMembersViewController: GroupMembersModelDelegate
 
-extension GroupMembers: GroupMembersModelDelegate {
+extension GroupMembersViewController: GroupMembersModelDelegate {
     func updateTitle(title: String) {
         self.title = title
     }

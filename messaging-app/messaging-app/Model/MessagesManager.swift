@@ -106,7 +106,7 @@ class MessagesManager {
             db.collection(K.db.collection.chats).document(safeChatId).collection("messages").addDocument(data: [
                 "fromEmail": fromEmail,
                 "text": message,
-                "time": Date().timeIntervalSince1970
+                "time": FieldValue.serverTimestamp()
             ]) { (error) in
                 if let e = error {
                     print("Error with saving data to firestore")

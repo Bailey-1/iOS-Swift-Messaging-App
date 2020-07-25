@@ -60,7 +60,7 @@ class AddUserManager {
             db.collection(K.db.collection.chats).document(safeChatId).collection("users").document(user.email!).setData([
                 "name": user.name!,
                 "userName": "",
-                "colour": "0A82E1"
+                "colour": K.db.defaults.userColour
             ]) { err in
                 if let err = err {
                     print("Error writing document: \(err)")

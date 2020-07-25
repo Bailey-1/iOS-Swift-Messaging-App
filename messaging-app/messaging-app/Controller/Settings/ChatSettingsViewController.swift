@@ -1,5 +1,5 @@
 //
-//  ChatSettings.swift
+//  ChatSettingsViewController.swift
 //  messaging-app
 //
 //  Created by Bailey Search on 22/07/2020.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ChatSettings: UITableViewController {
+class ChatSettingsViewController: UITableViewController {
 
     var chatSettingsManager = ChatSettingsManager()
     
@@ -25,15 +25,15 @@ class ChatSettings: UITableViewController {
     // Set new VC variables to pass chatID etc
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == K.segue.showColourPicker {
-            let destinationVC = segue.destination as! ColourPicker //Choose the right view controller. - Downcasting
+            let destinationVC = segue.destination as! ColourPickerViewController //Choose the right view controller. - Downcasting
             destinationVC.delegate = self
             
         } else if segue.identifier == K.segue.showChatMembers {
-            let destinationVC = segue.destination as! GroupMembers //Choose the right view controller. - Downcasting
+            let destinationVC = segue.destination as! GroupMembersViewController //Choose the right view controller. - Downcasting
             destinationVC.chatMembersModel.chatId = chatSettingsManager.chatId
             
         } else if segue.identifier == K.segue.showAddUser {
-            let destinationVC = segue.destination as! AddUser //Choose the right view controller. - Downcasting
+            let destinationVC = segue.destination as! AddUserViewController //Choose the right view controller. - Downcasting
             if let safeChatId = chatSettingsManager.chatId {
                 destinationVC.addUserManager.chatId = safeChatId
             }
@@ -45,9 +45,9 @@ class ChatSettings: UITableViewController {
     }
 }
 
-//MARK: - ChatSettings: GroupColourDelegate
+//MARK: - ChatSettingsViewController: GroupColourDelegate
 
-extension ChatSettings: ColourPickerDelegate {
+extension ChatSettingsViewController: ColourPickerDelegate {
     func useColour(colour: String) {
         chatSettingsManager.updateChatColour(colour: colour)
     }

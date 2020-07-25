@@ -14,7 +14,7 @@ protocol ColourPickerDelegate {
     func useColour(colour: String)
 }
 
-class ColourPicker: UIViewController {
+class ColourPickerViewController: UIViewController {
         
     var delegate: ColourPickerDelegate?
     

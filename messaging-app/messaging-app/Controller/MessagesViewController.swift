@@ -71,7 +71,7 @@ class MessagesViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == K.segue.showChatSettings {
-            let destinationVC = segue.destination as! ChatSettings //Chose the right view controller. - Downcasting
+            let destinationVC = segue.destination as! ChatSettingsViewController //Chose the right view controller. - Downcasting
             destinationVC.chatSettingsManager.chatId = chatId
         }
     }
