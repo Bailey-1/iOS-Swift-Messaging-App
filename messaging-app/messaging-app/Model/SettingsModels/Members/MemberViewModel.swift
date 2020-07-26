@@ -28,10 +28,10 @@ class MemberViewModel {
                     print("Error getting document: \(err)")
                 } else {
                     print("Success getting document")
-                    let name = (document?.data()!["name"] as! String)
-                    let userName = (document?.data()!["userName"] as! String)
-                    let colour = (document?.data()!["colour"] as! String)
-                    self.delegate?.showMemberDetails(name: name, userName: userName, colour: colour)
+                    let name = (document?.data()!["name"] as? String)
+                    let userName = (document?.data()!["userName"] as? String)
+                    let colour = (document?.data()!["colour"] as? String)
+                    self.delegate?.showMemberDetails(name: name ?? "", userName: userName ?? "", colour: colour ?? "")
                 }
             }
         }

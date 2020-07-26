@@ -21,6 +21,7 @@ class CreateChatViewController: UIViewController {
     @IBAction func createButtonPressed(_ sender: UIButton) {
         if nameTextField.text != nil {
             createChatModel.newChat(withName: nameTextField.text!)
+            _ = navigationController?.popViewController(animated: true)
         }
     }
 }

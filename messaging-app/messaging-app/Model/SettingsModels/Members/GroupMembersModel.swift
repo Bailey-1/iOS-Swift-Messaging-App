@@ -39,8 +39,8 @@ class GroupMembersModel {
                     for chatMember in documents!.documents {
                         var newUser = User()
                         newUser.email = chatMember.documentID
-                        newUser.name = (chatMember.data()["name"] as! String)
-                        newUser.userName = (chatMember.data()["userName"] as! String)
+                        newUser.name = (chatMember.data()["name"] as? String)
+                        newUser.userName = (chatMember.data()["userName"] as? String)
                         newUser.colour = (chatMember.data()["colour"] as! String)
                         self.members.append(newUser)
                     }
