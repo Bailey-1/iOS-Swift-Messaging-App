@@ -31,7 +31,8 @@ class CreateChatModel {
                 "name": chatName, // Set name
                 "colour": K.db.defaults.chatColour, // Set chat colour
                 "timeCreated": FieldValue.serverTimestamp(), // Set time created
-                "users": [Auth.auth().currentUser?.email] // Set the user array with the only user email in it.
+                "users": [Auth.auth().currentUser?.email], // Set the user array with the only user email in it.,
+                "chatLastActive": FieldValue.serverTimestamp()
             ]) { (error) in
                 if let e = error {
                     print("Error with saving new chat to firestore")

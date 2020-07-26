@@ -26,13 +26,11 @@ class ChatManager {
     // Get all chats and add then to chats
     func loadChats() {
         if let safeEmail = currentUser?.email {
-            let conversationRef = db.collection(K.db.collection.chats).whereField("users", arrayContains: safeEmail)
-            
-            conversationRef.getDocuments { (querySnapshot, error) in
+            db.collection(K.db.collection.chats).whereField("users", arrayContains: safeEmail).order(by: "chatLastActive", descending: true).addSnapshotListener { (querySnapshot, error) in
                 if let error = error {
                     print("There has been an error \(error)")
                 } else {
-                    
+                    self.chats = []
                     // Loop through each chat where the current user email is saved
                     
                     for chat in querySnapshot!.documents {

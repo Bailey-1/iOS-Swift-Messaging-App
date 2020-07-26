@@ -28,10 +28,10 @@ class MemberViewModel {
                     print("Error getting document: \(err)")
                 } else {
                     print("Success getting document")
-                    let name = (document?.data()!["name"] as? String)
+                    let name = (document?.data()!["name"] as! String)
                     let userName = (document?.data()!["userName"] as? String)
-                    let colour = (document?.data()!["colour"] as? String)
-                    self.delegate?.showMemberDetails(name: name ?? "", userName: userName ?? "", colour: colour ?? "")
+                    let colour = (document?.data()!["colour"] as! String)
+                    self.delegate?.showMemberDetails(name: name, userName: userName ?? " ", colour: colour)
                 }
             }
         }
@@ -53,12 +53,11 @@ class MemberViewModel {
     // Update member's current userName
     func updateUserName(newUserName: String) {
         if let safeChatId = self.chatId, let safeMemberId = self.memberId {
-            self.db.collection(K.db.collection.chats).document(safeChatId).collection("users").document(safeMemberId).setData([ "userName": newUserName], merge: true) { error in
+            db.collection(K.db.collection.chats).document(safeChatId).collection("users").document(safeMemberId).setData([ "userName": newUserName], merge: true) { error in
                 if let safeError = error {
                     print("An error occured: \(safeError)")
                 } else {
                     print("Success")
-                    self.loadMember()
                 }
             }
         }

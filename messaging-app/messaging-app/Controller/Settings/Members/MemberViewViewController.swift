@@ -70,7 +70,7 @@ class MemberViewViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch (indexPath.row) {
         case 1:
-            showChangeUsernameAlert()
+            showChangeUsernameAlert() 
             break;
         case 2:
             self.performSegue(withIdentifier: K.segue.showColourPicker, sender: self)
@@ -96,17 +96,20 @@ extension MemberViewViewController: ColourPickerDelegate {
 
 extension MemberViewViewController: MemberViewModelDelegate {
     func showMemberDetails(name: String, userName: String, colour: String) {
-        self.tableView.backgroundColor = UIColor(hexString: colour)
-        
-        let contrastOfBackgroundColor = UIColor(contrastingBlackOrWhiteColorOn:  UIColor(hexString: colour)!, isFlat: true)
-        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: contrastOfBackgroundColor]
-        self.navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: contrastOfBackgroundColor]
-        self.navigationController?.navigationBar.tintColor = contrastOfBackgroundColor
-        
+        print("memberveiewviewcontroller delegate called")
         DispatchQueue.main.async {
             self.nameValueLabel.text = name
-            self.usernameValueLabel.text = userName
+            self.usernameValueLabel.text = userName //TODO: Sometimes this label doesn't show text until you press the row and then it does. To repeat: Change the username to "" and then change it to a string like "username" and then it doesn't work idk y
             self.colourValueLabel.text = colour
+            
+            self.tableView.backgroundColor = UIColor(hexString: colour)
+            
+            let contrastOfBackgroundColor = UIColor(contrastingBlackOrWhiteColorOn:  UIColor(hexString: colour)!, isFlat: true)
+            self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: contrastOfBackgroundColor]
+            self.navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: contrastOfBackgroundColor]
+            self.navigationController?.navigationBar.tintColor = contrastOfBackgroundColor
+            
+
         }
     }
 }

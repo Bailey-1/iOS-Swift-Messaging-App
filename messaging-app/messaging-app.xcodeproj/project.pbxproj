@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		8190EA7A232B5EBFAE2EA8EA /* Pods_messaging_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7CF61650950266DE9F9755B /* Pods_messaging_app.framework */; };
 		D92F6EB524CCC4920037DEDF /* CreateChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92F6EB424CCC4920037DEDF /* CreateChatModel.swift */; };
+		D93113F024CDEE000003613B /* AppSettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93113EF24CDEE000003613B /* AppSettingsModel.swift */; };
+		D93113F324CE060C0003613B /* DBMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93113F224CE060C0003613B /* DBMethods.swift */; };
 		D93140BD24CB0F5900158EF9 /* ChatSettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93140BC24CB0F5900158EF9 /* ChatSettingsManager.swift */; };
 		D933489824CC4B7E00CB2E90 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D933489724CC4B7E00CB2E90 /* CustomButton.swift */; };
 		D944D33A24CB4C9000208337 /* AppSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D944D33924CB4C9000208337 /* AppSettingsViewController.swift */; };
@@ -46,6 +48,8 @@
 		9A82BAD1BBA84AA1FC8598C7 /* Pods-messaging-app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-messaging-app.release.xcconfig"; path = "Target Support Files/Pods-messaging-app/Pods-messaging-app.release.xcconfig"; sourceTree = "<group>"; };
 		C7CF61650950266DE9F9755B /* Pods_messaging_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_messaging_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D92F6EB424CCC4920037DEDF /* CreateChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChatModel.swift; sourceTree = "<group>"; };
+		D93113EF24CDEE000003613B /* AppSettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsModel.swift; sourceTree = "<group>"; };
+		D93113F224CE060C0003613B /* DBMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBMethods.swift; sourceTree = "<group>"; };
 		D93140BC24CB0F5900158EF9 /* ChatSettingsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatSettingsManager.swift; sourceTree = "<group>"; };
 		D933489724CC4B7E00CB2E90 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		D944D33924CB4C9000208337 /* AppSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsViewController.swift; sourceTree = "<group>"; };
@@ -110,6 +114,14 @@
 			path = MessageBubble;
 			sourceTree = "<group>";
 		};
+		D93113F124CE05D60003613B /* Firestore */ = {
+			isa = PBXGroup;
+			children = (
+				D93113F224CE060C0003613B /* DBMethods.swift */,
+			);
+			path = Firestore;
+			sourceTree = "<group>";
+		};
 		D933489924CC4D6300CB2E90 /* CustomUIElements */ = {
 			isa = PBXGroup;
 			children = (
@@ -141,11 +153,13 @@
 		D962D88E24C5E82400C9E460 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D93113F124CE05D60003613B /* Firestore */,
 				D9B44CB924C70DD300CE50C6 /* Chat.swift */,
 				D9AA472124CA388700328EB7 /* ChatManager.swift */,
 				D9AA472324CA3FBE00328EB7 /* MessagesManager.swift */,
-				D98D37CE24CB127E006339BE /* SettingsModels */,
 				D92F6EB424CCC4920037DEDF /* CreateChatModel.swift */,
+				D98D37CE24CB127E006339BE /* SettingsModels */,
+				D93113EF24CDEE000003613B /* AppSettingsModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -158,9 +172,9 @@
 				D962D89024C5E89400C9E460 /* LoginViewController.swift */,
 				D962D89624C5F9F100C9E460 /* ContactsViewController.swift */,
 				D962D89824C5F9FE00C9E460 /* MessagesViewController.swift */,
+				D944D33B24CB4CAB00208337 /* CreateChatViewController.swift */,
 				D95D403F24C8C167001984FD /* Settings */,
 				D944D33924CB4C9000208337 /* AppSettingsViewController.swift */,
-				D944D33B24CB4CAB00208337 /* CreateChatViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -355,8 +369,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D93113F324CE060C0003613B /* DBMethods.swift in Sources */,
 				D974461A24C5DB6B002D45D8 /* messaging_app.xcdatamodeld in Sources */,
 				D9AA472424CA3FBE00328EB7 /* MessagesManager.swift in Sources */,
+				D93113F024CDEE000003613B /* AppSettingsModel.swift in Sources */,
 				D9BBB4D624C9FB2D00C20E5F /* AddUserViewController.swift in Sources */,
 				D9D8426524C7511F00E4C086 /* MessageBubble.swift in Sources */,
 				D933489824CC4B7E00CB2E90 /* CustomButton.swift in Sources */,

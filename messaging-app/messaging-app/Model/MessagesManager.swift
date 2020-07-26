@@ -113,6 +113,7 @@ class MessagesManager {
                     print(e)
                 } else {
                     print("Success with saving data to firestore")
+                    DBMethods.updateChatLastActiveTimestamp(chatDocumentID: safeChatId)
                 }
             }
         }

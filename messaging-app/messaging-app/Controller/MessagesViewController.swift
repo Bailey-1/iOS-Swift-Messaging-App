@@ -108,12 +108,12 @@ extension MessagesViewController: UITableViewDataSource {
 
 extension MessagesViewController: MessagesManagerDelegate {
     func updateUI(hexColour: String) {
-        guard let navBar = navigationController?.navigationBar else {fatalError("Navigation controller does not exist")}
+        let navBar = navigationController?.navigationBar
         
         chatColour = UIColor(hexString: hexColour)!
-        navBar.titleTextAttributes = [.foregroundColor: chatColour!]
-        navBar.largeTitleTextAttributes = [.foregroundColor: chatColour!]
-        navBar.tintColor = chatColour
+        navBar?.titleTextAttributes = [.foregroundColor: chatColour!]
+        navBar?.largeTitleTextAttributes = [.foregroundColor: chatColour!]
+        navBar?.tintColor = chatColour
         
         senderView.backgroundColor = chatColour
         sendButton.tintColor = UIColor(contrastingBlackOrWhiteColorOn: chatColour!, isFlat: true)

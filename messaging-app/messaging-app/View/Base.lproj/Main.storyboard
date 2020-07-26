@@ -532,7 +532,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="IoX-EK-zc1" detailTextLabel="hIq-Yp-de7" style="IBUITableViewCellStyleValue1" id="Wxo-ey-3LS">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="IoX-EK-zc1" detailTextLabel="BXw-Pf-KIR" style="IBUITableViewCellStyleValue1" id="Wxo-ey-3LS">
                                         <rect key="frame" x="20" y="61.5" width="374" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Wxo-ey-3LS" id="3Ma-fc-sGy">
@@ -546,8 +546,8 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Null" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hIq-Yp-de7">
-                                                    <rect key="frame" x="324" y="12" width="30" height="20.5"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BXw-Pf-KIR">
+                                                    <rect key="frame" x="310" y="12" width="44" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -614,7 +614,7 @@
                     <connections>
                         <outlet property="colourValueLabel" destination="XqN-dU-taf" id="Wcl-dA-TUS"/>
                         <outlet property="nameValueLabel" destination="PvF-y4-Oab" id="OlH-ba-P9J"/>
-                        <outlet property="usernameValueLabel" destination="hIq-Yp-de7" id="Ckv-2k-DuM"/>
+                        <outlet property="usernameValueLabel" destination="BXw-Pf-KIR" id="GfL-U2-csb"/>
                         <outletCollection property="tableViewCell" destination="mJ1-iz-dvC" collectionClass="NSMutableArray" id="z1l-tX-cbU"/>
                         <outletCollection property="tableViewCell" destination="Wxo-ey-3LS" collectionClass="NSMutableArray" id="3k5-ie-3Od"/>
                         <outletCollection property="tableViewCell" destination="ku2-eV-i7S" collectionClass="NSMutableArray" id="7dS-3g-Val"/>
