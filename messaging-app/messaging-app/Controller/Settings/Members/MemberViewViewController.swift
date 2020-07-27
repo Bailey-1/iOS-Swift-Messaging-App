@@ -59,6 +59,7 @@ class MemberViewViewController: UITableViewController {
     
     @IBAction func removeButtonPressed(_ sender: UIButton) {
         memberViewModel.removeFromChat()
+        _ = navigationController?.popViewController(animated: true)
     }
     
     

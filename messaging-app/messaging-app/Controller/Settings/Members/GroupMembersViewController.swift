@@ -19,8 +19,8 @@ class GroupMembersViewController: UITableViewController {
         // basic config for chatMembersModel
         chatMembersModel.delegate = self
         
-        // Call the method to fetch all of the members of the current chat
-        chatMembersModel.loadMembers()
+        // Call the method to fetch all of the chatMembers of the current chat
+        chatMembersModel.loadValidMembers()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -37,16 +37,16 @@ class GroupMembersViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return chatMembersModel.members.count
+        return chatMembersModel.chatMembers.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.textLabel!.text = chatMembersModel.members[indexPath.row].email
-        cell.detailTextLabel!.text = chatMembersModel.members[indexPath.row].name
+        cell.textLabel!.text = chatMembersModel.chatMembers[indexPath.row].email
+        cell.detailTextLabel!.text = chatMembersModel.chatMembers[indexPath.row].name
         
         // Update the colour of the cell from the user set colour and set text to contrast
-        if let safeColour = chatMembersModel.members[indexPath.row].colour {
+        if let safeColour = chatMembersModel.chatMembers[indexPath.row].colour {
             cell.backgroundColor = UIColor(hexString: safeColour)
             cell.textLabel?.textColor = UIColor(contrastingBlackOrWhiteColorOn: UIColor(hexString: safeColour)!, isFlat: true)
             cell.detailTextLabel?.textColor = UIColor(contrastingBlackOrWhiteColorOn: UIColor(hexString: safeColour)!, isFlat: true)
@@ -60,7 +60,7 @@ class GroupMembersViewController: UITableViewController {
             let destinationVC = segue.destination as! MemberViewViewController //Chose the right view controller. - Downcasting
             if let safeChatId = chatMembersModel.chatId {
                 destinationVC.memberViewModel.chatId = safeChatId
-                destinationVC.memberViewModel.memberId = chatMembersModel.members[chatMembersModel.selectedRow!].email
+                destinationVC.memberViewModel.memberId = chatMembersModel.chatMembers[chatMembersModel.selectedRow!].email
             }
         }
     }

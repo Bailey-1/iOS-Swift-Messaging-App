@@ -16,7 +16,7 @@ protocol GroupMembersModelDelegate {
 
 class GroupMembersModel {
     
-    var members: [User] = []
+    var chatMembers: [User] = []
     let db = Firestore.firestore()
     var chatId: String?
 
@@ -24,15 +24,31 @@ class GroupMembersModel {
     
     var delegate: GroupMembersModelDelegate?
     
-    // Load all chat members
+    var chatMemberArray: [String]?
+    
+    func loadValidMembers() {
+        if let safeChatId = chatId {
+            db.collection(K.db.collection.chats).document(safeChatId).addSnapshotListener() { (chatDocument, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                } else {
+                    self.chatMemberArray = []
+                    self.chatMemberArray = (chatDocument?.data()!["users"] as! [String])
+                    self.loadMembers()
+                }
+            }
+        }
+    }
+    
+    // Load all chat chatMembers
     func loadMembers() {
         if let safeChatId = chatId {
             db.collection(K.db.collection.chats).document(safeChatId).collection("users").addSnapshotListener() { (documents, err) in
                 if let err = err {
                     print("Error getting documents: \(err)")
                 } else {
-                    
-                    self.members = []
+                    print("Load members snapshot listener else")
+                    self.chatMembers = []
                     
                     // Iterates through each member in the chat and adds them to the member array
                     
@@ -42,10 +58,15 @@ class GroupMembersModel {
                         newUser.name = (chatMember.data()["name"] as? String)
                         newUser.userName = (chatMember.data()["userName"] as? String)
                         newUser.colour = (chatMember.data()["colour"] as! String)
-                        self.members.append(newUser)
+                        
+                        if let safeChatMemberArray = self.chatMemberArray {
+                            if (safeChatMemberArray.contains(newUser.email!)){
+                                self.chatMembers.append(newUser)
+                            }
+                        }
                     }
                     print("done")
-                    self.delegate?.updateTitle(title: "Members (\(self.members.count))")
+                    self.delegate?.updateTitle(title: "Members (\(self.chatMembers.count))")
                     self.delegate?.updateTableView()
                 }
             }
