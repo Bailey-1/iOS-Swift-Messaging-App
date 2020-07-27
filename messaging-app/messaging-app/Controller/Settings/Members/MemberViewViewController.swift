@@ -15,7 +15,6 @@ class MemberViewViewController: UITableViewController {
     @IBOutlet weak var usernameValueLabel: UILabel!
     @IBOutlet weak var colourValueLabel: UILabel!
     
-    
     @IBOutlet var tableViewCell: [UITableViewCell]!
     
     var memberViewModel = MemberViewModel()
@@ -57,6 +56,11 @@ class MemberViewViewController: UITableViewController {
         alert.addAction(cancelAction)
         present(alert, animated: true, completion: nil)
     }
+    
+    @IBAction func removeButtonPressed(_ sender: UIButton) {
+        memberViewModel.removeFromChat()
+    }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == K.segue.showColourPicker {

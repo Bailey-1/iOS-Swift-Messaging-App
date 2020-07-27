@@ -56,6 +56,7 @@ extension ContactsViewController {
         print("ID: \(chatManager.chats[indexPath.row].id) - Name: \(chatManager.chats[indexPath.row].name)")
         chatManager.selectedChatId = chatManager.chats[indexPath.row].id
         self.performSegue(withIdentifier: K.segue.showMessages, sender: self)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

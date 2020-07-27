@@ -106,7 +106,8 @@ class MessagesManager {
             db.collection(K.db.collection.chats).document(safeChatId).collection("messages").addDocument(data: [
                 "fromEmail": fromEmail,
                 "text": message,
-                "time": FieldValue.serverTimestamp()
+                "time": FieldValue.serverTimestamp(),
+                "type": "Generic Message" // TODO: Add alerts such as user added / removed and maybe admin messages which standout againest generic
             ]) { (error) in
                 if let e = error {
                     print("Error with saving data to firestore")

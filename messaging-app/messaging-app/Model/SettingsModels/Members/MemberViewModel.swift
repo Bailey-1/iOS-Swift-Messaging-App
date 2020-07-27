@@ -60,6 +60,20 @@ class MemberViewModel {
                     print("Success")
                 }
             }
+        } 
+    }
+    
+    func removeFromChat() {
+        if let safeChatId = self.chatId, let safeMemberId = self.memberId {
+            db.collection(K.db.collection.chats).document(safeChatId).updateData([
+                "users": FieldValue.arrayRemove([safeMemberId])]) //TODO: Also remove the object from the user collection and change the default user to have "unkown" name
+                { error in
+                if let safeError = error {
+                    print("An error occured: \(safeError)")
+                } else {
+                    print("Successfully removed user")
+                }
+            }
         }
     }
 }
