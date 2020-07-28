@@ -1,6 +1,38 @@
 # Swift-iOS-Messaging-App
 A messaging app written in Swift using firebase. This was really just a way to play with a range of static and dynamic UITableViews and UITableViewControllers with some custom cells.
 
+<p align="center">
+  <img src="./README-ASSETS/demo-pic-6.png" height=500px/>
+</p>
+
+## Screenshots:
+
+### Login:
+
+<p float="left">
+  <img src="./README-ASSETS/demo-pic-0.png" height=500px/>
+  <img src="./README-ASSETS/demo-pic-1.png" height=500px/>
+</p>
+
+### Chats:
+<p float="left">
+  <img src="./README-ASSETS/demo-pic-2.png" height=500px/>
+  <img src="./README-ASSETS/demo-pic-3.png" height=500px/>
+</p>
+
+### Send Messages:
+
+<p float="left">
+  <img src="./README-ASSETS/demo-pic-4.png" height=500px/>
+  <img src="./README-ASSETS/demo-pic-5.png" height=500px/>
+</p>
+
+### Group Chats:
+
+<p float="left">
+  <img src="./README-ASSETS/demo-pic-6.png" height=500px/>
+</p>
+
 ## Features:
 - Securely register and login with email & password using Firebase
 - All data is securely stored in a Firestore.
