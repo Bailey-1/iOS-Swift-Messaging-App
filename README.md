@@ -1,5 +1,5 @@
 # Swift-iOS-Messaging-App
-A messaging app written in Swift using firebase. This was really just a way to play with a range of static and dynamic UITableViews and UITableViewControllers with some custom cells. Took just over a week to make. Still alot of room for improvements and fixes but it works alright i guess. It is beginning to hit the limit of what firebase iOS can do such as not being able to delete collections. Might continue with this in the future when I have a lil backend system for it, so that can do some of the heavy lifting instead.
+A messaging app written in Swift using firebase. This was really just a way to play with a range of static and dynamic UITableViews and UITableViewControllers with some custom cells. Took just over a week to make. Still alot of room for improvements and fixes but it works alright i guess. It is beginning to hit the limit of what firebase iOS can do such as not being able to [delete collections](https://firebase.google.com/docs/firestore/manage-data/delete-data#collections). Might continue with this in the future when I have a lil backend system for it, so that can do some of the heavy lifting instead.
 
 <p align="center">
   <img src="./README-ASSETS/demo-pic-6.png" height=500px/>
